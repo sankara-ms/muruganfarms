@@ -79,38 +79,50 @@ The enquiry API is covered by `tests/Feature/EnquiryTest.php`.
 
 ## Live site
 
-The public site is hosted on Qoder Sites:
+The public demo site is hosted on GitHub Pages:
 
-**<https://farmingmurugansanthi-22b74f79eo4.qoder.website>**
+**<https://sankara-ms.github.io/muruganfarms/>**
 
-It is a static export of the Laravel pages, so the published design matches the local app
-exactly (English at `/`, Tamil at `/ta/`).
+Source and builds live in <https://github.com/sankara-ms/muruganfarms>. English is served
+at `/muruganfarms/`, Tamil at `/muruganfarms/ta/index.html`.
 
 ```
-dist/                     # exported static site (index.html, ta/index.html, css, js, assets)
-functions/index.ts        # Deno entry point for the enquiry endpoint
-functions/handler.ts      # validates the form and relays it to the owner's email
+dist/                     # static export for Qoder Sites (root-relative links)
+docs/                     # GitHub Pages build (served from /muruganfarms/)
+functions/                # Qoder Edge Function that relays enquiries
+scripts/build-pages.mjs   # regenerates docs/ from dist/
 ```
 
-`dist/` is generated from the running Laravel app, with `http://127.0.0.1:8000` rewritten to
-root-relative paths, `/locale/en` → `/`, `/locale/ta` → `/ta/index.html`, and
-`/api/enquiries` → `/functions/v1/app`.
+The original Qoder Sites deployment is still live at
+<https://farmingmurugansanthi-22b74f79eo4.qoder.website>. Qoder fixes that account suffix
+on every address, which is why the demo uses GitHub Pages.
 
 ### Enquiries
 
-The static site has no database, so the enquiry form posts to the Edge Function, which
-validates the payload and forwards it to `sankarnaece@gmail.com`. Delivery uses
-[ShipMyForm](https://shipmyform.com) and requires a one-time activation: the first time the
-function relays a message, ShipMyForm emails `sankarnaece@gmail.com` an activation link.
-Click it once and all later enquiries are forwarded automatically. The WhatsApp and phone
-buttons keep working independently of this.
+There is no database on the static hosts. Both builds send the enquiry to
+`sankarnaece@gmail.com`:
 
-Republishing after a content change:
+- GitHub Pages posts directly to the ShipMyForm relay
+  (`https://shipmyform.com/to/sankarnaece@gmail.com`), which allows the browser's
+  cross-origin request.
+- Qoder posts to `/functions/v1/app`, which validates the form and relays it to the same
+  address (the Qoder gateway only accepts same-origin function calls).
 
-1. Export the site again from the updated Laravel app into `dist/`.
-2. Prepare and publish a new action for the same Qoder Site project (reuse the existing
-   `projectId`; a changed `dist/` needs a new action).
-3. Run the local tests and re-check the live form once after publishing.
+Delivery requires a one-time activation: the first relay attempt emails
+`sankarnaece@gmail.com` an activation link. Click it once and later enquiries are
+forwarded automatically. The WhatsApp and phone buttons work independently.
+
+### Republish
+
+After changing the Laravel app, export the static site to `dist/`, then:
+
+```bash
+node scripts/build-pages.mjs   # refresh docs/ for GitHub Pages
+git add -A && git commit -m "Update site" && git push
+```
+
+Pages rebuilds automatically from `docs/`. For the Qoder copy, prepare and publish a new
+action for the existing project (a changed `dist/` needs a new action).
 
 ## Backups
 
