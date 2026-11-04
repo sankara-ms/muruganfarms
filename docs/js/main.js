@@ -227,7 +227,6 @@ function bindForm() {
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
-          "X-CSRF-TOKEN": SITE.csrf || "",
         },
         body: JSON.stringify(payload),
       });
