@@ -1,0 +1,8 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">Murugan Farms mark</title>
+  <desc id="desc">Leaf and stem emblem for Murugan Farms</desc>
+  <rect width="128" height="128" rx="28" fill="#edf6eb"/>
+  <path d="M64 18c-20 20-38 30-38 57 0 23 17 35 38 35s38-12 38-35c0-27-18-37-38-57Z" fill="#1d5a38"/>
+  <path d="M64 42c-10 18-28 28-28 47 0 13 11 23 28 23s28-10 28-23c0-19-18-29-28-47Z" fill="#7ea15d"/>
+  <path d="M64 56v42" stroke="#d9a95d" stroke-width="8" stroke-linecap="round"/>
+</svg>

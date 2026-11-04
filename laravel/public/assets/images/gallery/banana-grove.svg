@@ -1,0 +1,21 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" role="img" aria-labelledby="title desc">
+  <title id="title">Banana grove</title>
+  <desc id="desc">Banana trees in a healthy farm grove</desc>
+  <rect width="900" height="620" fill="#edf3e7"/>
+  <path d="M0 440C220 330 330 320 450 400S740 520 900 430v190H0Z" fill="#9cc06c"/>
+  <path d="M0 500C180 470 300 490 440 520S740 570 900 530v90H0Z" fill="#5a7d44"/>
+  <g fill="#5a923f">
+    <path d="M180 170 210 400H150Z"/>
+    <path d="M270 150 300 400H240Z"/>
+    <path d="M360 175 390 410H330Z"/>
+    <path d="M470 150 500 400H440Z"/>
+    <path d="M570 180 600 410H540Z"/>
+  </g>
+  <g fill="#f5da62">
+    <ellipse cx="180" cy="170" rx="70" ry="42"/>
+    <ellipse cx="270" cy="150" rx="72" ry="42"/>
+    <ellipse cx="360" cy="175" rx="74" ry="44"/>
+    <ellipse cx="470" cy="150" rx="70" ry="42"/>
+    <ellipse cx="570" cy="180" rx="72" ry="44"/>
+  </g>
+</svg>

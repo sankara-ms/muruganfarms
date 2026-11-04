@@ -1,0 +1,17 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Murugan Farms field</title>
+  <desc id="desc">Illustrated farm landscape with rolling fields and trees</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f2ead9"/>
+      <stop offset="100%" stop-color="#e5f1df"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#sky)"/>
+  <circle cx="1010" cy="170" r="108" fill="#f5d7a0" opacity="0.8"/>
+  <path d="M0 610C170 540 270 570 420 600S740 670 1200 560v340H0Z" fill="#8da869"/>
+  <path d="M0 700C180 670 290 760 470 720S850 630 1200 700v200H0Z" fill="#567d49"/>
+  <path d="M170 620c50-110 120-180 240-120s110 170 200 180 170-90 260-40 140 120 220 120v120H170Z" fill="#c2d89a" opacity="0.75"/>
+  <path d="M190 860 260 700l100 160Z" fill="#764b2f"/>
+  <path d="M1020 860 1090 700l100 160Z" fill="#5e3c31"/>
+</svg>

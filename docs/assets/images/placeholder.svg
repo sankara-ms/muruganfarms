@@ -1,0 +1,9 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="title desc">
+  <title id="title">Farm placeholder</title>
+  <desc id="desc">Placeholder illustration for missing farm image</desc>
+  <rect width="800" height="600" fill="#edf3e3"/>
+  <circle cx="660" cy="140" r="92" fill="#f0d79a"/>
+  <path d="M0 420C180 350 270 370 380 420S640 490 800 420v180H0Z" fill="#9bbd74"/>
+  <path d="M0 490C190 455 330 500 500 520S700 560 800 530v70H0Z" fill="#638d49"/>
+  <text x="400" y="298" text-anchor="middle" font-family="Arial, sans-serif" font-size="44" fill="#224b2c" font-weight="700">Farm image</text>
+</svg>

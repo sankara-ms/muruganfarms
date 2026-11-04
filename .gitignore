@@ -1,0 +1,11 @@
+laravel/vendor/
+laravel/node_modules/
+laravel/.env
+laravel/.env.*
+laravel/database/*.sqlite
+laravel/storage/logs/*.log
+laravel/storage/framework/cache/data/*
+laravel/storage/framework/sessions/*
+laravel/storage/framework/views/*
+laravel/bootstrap/cache/*.php
+*.qoder.site

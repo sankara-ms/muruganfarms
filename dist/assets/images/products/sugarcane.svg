@@ -1,0 +1,19 @@
+﻿<svg xmlns=""http://www.w3.org/2000/svg" viewBox=""0 0 800 600"" role=""img"" aria-labelledby=""title desc""><title id=""title""></title><desc id=""desc"">Illustrated Sugarcane</desc>
+  <rect width="800" height="600" fill="#dfeec7"/>
+  <circle cx="680" cy="120" r="90" fill="#fff9eb" opacity="0.68"/>
+  <path d="M0 430C170 360 230 370 340 420S570 490 800 420v180H0Z" fill="#9ac07a"/>
+  <path d="M0 500C180 470 290 510 450 520S670 555 800 500v100H0Z" fill="#6a8f4a"/>
+  <g fill="#5b8d42" opacity="0.9">
+    <ellipse cx="190" cy="250" rx="96" ry="70"/>
+    <ellipse cx="300" cy="220" rx="110" ry="68"/>
+    <ellipse cx="410" cy="245" rx="96" ry="68"/>
+    <ellipse cx="525" cy="220" rx="96" ry="62"/>
+  </g>
+  <g fill="#fff" opacity="0.88">
+    <circle cx="188" cy="240" r="25"/>
+    <circle cx="302" cy="210" r="22"/>
+    <circle cx="410" cy="235" r="23"/>
+    <circle cx="525" cy="210" r="22"/>
+  </g>
+  <text x="400" y="560" text-anchor="middle" font-family="Arial, sans-serif" font-size="42" font-weight="700" fill="#5b8d42">Sugarcane</text>
+</svg>

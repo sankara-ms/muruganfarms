@@ -1,0 +1,9 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" role="img" aria-labelledby="title desc">
+  <title id="title">Farm sunrise</title>
+  <desc id="desc">Sunrise over a green field in Tiruvannamalai</desc>
+  <rect width="900" height="620" fill="#efe9d8"/>
+  <circle cx="710" cy="120" r="96" fill="#f2d69e"/>
+  <path d="M0 360C170 330 270 340 410 390S700 470 900 370v250H0Z" fill="#87ab60"/>
+  <path d="M0 430C160 385 280 390 420 420S710 500 900 430v190H0Z" fill="#597E4A"/>
+  <path d="M140 230 220 160 260 230Z" fill="#7d6d4d" opacity="0.8"/>
+</svg>

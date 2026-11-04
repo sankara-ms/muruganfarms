@@ -1,0 +1,14 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 840" role="img" aria-labelledby="title desc">
+  <title id="title">Farmer portrait</title>
+  <desc id="desc">Sample portrait placeholder for a Murugan Farms farmer</desc>
+  <rect width="700" height="840" fill="#f5efe4"/>
+  <circle cx="350" cy="170" r="118" fill="#c88a62"/>
+  <path d="M267 170c12-86 46-128 88-128 49 0 83 42 96 128-32-18-58-28-96-28-35 0-66 10-88 28Z" fill="#2a2927"/>
+  <path d="M258 262c52-30 100-30 158 0l58 388H200l58-388Z" fill="#d0a55d"/>
+  <path d="M290 280h118l18 216H272l18-216Z" fill="#7d4e2a" opacity="0.28"/>
+  <path d="M208 800c32-122 97-174 142-174s110 52 142 174H208Z" fill="#2f6d3a"/>
+  <path d="M176 758c34-90 98-128 174-128s140 38 174 128H176Z" fill="#4b7b4d"/>
+  <circle cx="322" cy="180" r="11" fill="#1d1d1d"/>
+  <circle cx="395" cy="180" r="11" fill="#1d1d1d"/>
+  <path d="M338 220c18 18 41 18 60 0" stroke="#6b3f34" stroke-width="8" stroke-linecap="round" fill="none"/>
+</svg>

@@ -1,0 +1,21 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" role="img" aria-labelledby="title desc">
+  <title id="title">Coconut trees</title>
+  <desc id="desc">Coconut trees in a warm tropical farm setting</desc>
+  <rect width="900" height="620" fill="#edf4ea"/>
+  <path d="M0 420C150 350 300 360 470 430S760 480 900 420v200H0Z" fill="#97bb73"/>
+  <path d="M0 470C180 420 300 450 500 500S740 560 900 520v100H0Z" fill="#5d8551"/>
+  <g fill="#2f6f3a">
+    <path d="M155 250 170 420H140Z"/>
+    <path d="M255 230 270 420H240Z"/>
+    <path d="M360 260 380 420H340Z"/>
+    <path d="M505 240 520 420H495Z"/>
+    <path d="M630 250 645 430H615Z"/>
+  </g>
+  <g fill="#8d7a3d">
+    <ellipse cx="155" cy="248" rx="70" ry="42"/>
+    <ellipse cx="255" cy="228" rx="74" ry="41"/>
+    <ellipse cx="360" cy="258" rx="72" ry="40"/>
+    <ellipse cx="505" cy="238" rx="76" ry="41"/>
+    <ellipse cx="630" cy="250" rx="72" ry="40"/>
+  </g>
+</svg>
