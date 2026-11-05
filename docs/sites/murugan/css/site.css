@@ -172,7 +172,10 @@ html[lang="ta"] .signature {
   letter-spacing: 0;
 }
 
-html[lang="ta"] h1 { font-size: clamp(1.95rem, 4.4vw, 3.15rem); }
+/* Headline scale for Tamil: the longest word in the hero title is ~12 % wider
+   than the English one it replaces, so the desktop cap is below the English
+   size — otherwise the column breaks the word mid-glyph. */
+html[lang="ta"] h1 { font-size: clamp(1.95rem, 3.7vw, 2.8rem); }
 html[lang="ta"] h2 { font-size: clamp(1.6rem, 2.9vw, 2.25rem); }
 html[lang="ta"] .brand-name { font-size: 1.2rem; }
 html[lang="ta"] .brand-tag { font-size: 0.64rem; }
@@ -202,6 +205,17 @@ html[lang="ta"] .hero-text,
 html[lang="ta"] .location-pill,
 html[lang="ta"] .btn {
   overflow-wrap: anywhere;
+}
+
+/* Above 900px the header call button shares its row with the full nav, and the
+   Tamil word for "call" is long enough to stack as syllables inside the pill.
+   Keep it on one line and trim the pill instead. */
+@media (min-width: 901px) {
+  html[lang="ta"] .header-actions .btn {
+    white-space: nowrap;
+    padding-inline: 0.8rem;
+    font-size: 0.8rem;
+  }
 }
 
 /* Grid/flex children default to min-width:auto (i.e. min-content), which lets

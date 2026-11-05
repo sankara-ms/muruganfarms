@@ -747,7 +747,7 @@ p { margin: 0; }
 }
 
 /* ---------------- Hero title word rise ---------------- */
-.hero-word { display: inline-block; overflow: hidden; padding-bottom: 0.14em; margin-bottom: -0.14em; }
+.hero-word { display: inline-block; overflow: hidden; vertical-align: bottom; padding-bottom: 0.14em; margin-bottom: -0.14em; }
 .hero-word-inner { display: inline-block; }
 .is-words-in .hero-word-inner {
   animation: word-rise 0.62s cubic-bezier(0.22, 0.68, 0.24, 1) backwards;
@@ -755,6 +755,12 @@ p { margin: 0; }
 }
 @keyframes word-rise {
   from { transform: translateY(112%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+/* fallback when per-word masks would add lines: the whole title rises once */
+.is-title-rise { animation: title-rise 0.7s cubic-bezier(0.22, 0.68, 0.24, 1) backwards; }
+@keyframes title-rise {
+  from { transform: translateY(26px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
 }
 

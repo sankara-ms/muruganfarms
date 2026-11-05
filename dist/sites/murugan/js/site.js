@@ -201,6 +201,11 @@
     const words = (title.textContent || "").trim().split(/\s+/).filter(Boolean);
     if (words.length < 2) return;
 
+    // A word mask is atomic, so a script with very long words (Tamil) can end up
+    // with more lines than plain text. Measure, and fall back to a single rise.
+    const style = window.getComputedStyle(title);
+    const lineHeight = parseFloat(style.lineHeight) || parseFloat(style.fontSize) * 1.2;
+    const plainHeight = title.getBoundingClientRect().height;
     title.textContent = "";
     words.forEach((word, index) => {
       const mask = document.createElement("span");
@@ -213,7 +218,13 @@
       title.appendChild(mask);
       title.appendChild(document.createTextNode(" "));
     });
-    title.classList.add("is-words-in");
+
+    if (title.getBoundingClientRect().height > plainHeight + lineHeight * 0.6) {
+      title.textContent = words.join(" ");
+      title.classList.add("is-title-rise");
+    } else {
+      title.classList.add("is-words-in");
+    }
   }
 
   /* ---------- Back to top, ringed with page progress ---------- */
