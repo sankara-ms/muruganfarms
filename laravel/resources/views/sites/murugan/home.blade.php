@@ -160,7 +160,7 @@
             <li>{{ $point }}</li>
           @endforeach
         </ul>
-        <p class="signature" aria-hidden="true">— G. Murugan &amp; M. Santhi</p>
+        <p class="signature" aria-hidden="true">{{ __('site.about.signature') }}</p>
         <p class="signature-meta">
           <strong>{{ __('site.about.signature_meta_name') }}</strong><br />{{ __('site.about.signature_meta') }}
         </p>

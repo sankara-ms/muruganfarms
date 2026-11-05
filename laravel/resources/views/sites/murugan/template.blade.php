@@ -6,22 +6,64 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <script>
       // Static builds only (the export tags <html data-static-locale>): the device's
-      // own language picks the page — Tamil first means Tamil, anything else English.
-      // A manual switch is remembered, so this never overwrites a real choice.
+      // own language picks the page — Tamil anywhere in the list means Tamil, because
+      // Chrome can lead with en-IN on a Tamil phone. A manual switch is remembered,
+      // but only while the phone still speaks the language it was made in.
       (function () {
         var root = document.documentElement;
         if (!root.hasAttribute("data-static-locale")) return;
-        var stored = "";
-        try { stored = localStorage.getItem("mf-locale") || ""; } catch (err) {}
-        if (stored) return;
-        var first = String((navigator.languages && navigator.languages[0]) || navigator.language || "en").toLowerCase();
-        var tamil = /^(ta)([-_]|$)/.test(first);
+
         var here = (root.getAttribute("lang") || "en").toLowerCase();
-        if (tamil && here.indexOf("ta") !== 0) {
-          location.replace(new URL("ta/index.html", location.href).href);
-        } else if (!tamil && here.indexOf("ta") === 0) {
-          location.replace(new URL("../index.html", location.href).href);
+        var hereIsTamil = here.indexOf("ta") === 0;
+
+        function store(key, value) {
+          try { localStorage.setItem(key, value); } catch (err) {}
         }
+        function read(key) {
+          try { return localStorage.getItem(key) || ""; } catch (err) { return ""; }
+        }
+        function go(toTamil) {
+          // Kept free of backslash-escaped slashes: the static export unescapes them
+          // mid-file and would leave an invalid pattern behind.
+          var dir = location.href.split("#")[0].split("?")[0].replace(/[^/]*$/, "");
+          if (toTamil) {
+            location.replace(dir + "ta/index.html");
+            return;
+          }
+          // Only the Tamil directory has a known spelling, so recognise that and
+          // nothing else — a guess here would send the visitor to a dead path.
+          if (dir.slice(-3) !== "ta/") return;
+          location.replace(dir.slice(0, -3) + "index.html");
+        }
+
+        var prefs = [];
+        try {
+          prefs = (navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || "en"])
+            .map(function (tag) { return String(tag).toLowerCase(); });
+        } catch (err) { prefs = ["en"]; }
+
+        var first = prefs[0];
+        var deviceIsTamil = prefs.some(function (tag) { return /^ta([-_]|$)/.test(tag); });
+
+        // A shared link can name the language outright: ?lang=ta / ?lang=en.
+        // Remembering it against today's device language is what stops the next page
+        // from re-running detection and bouncing straight back.
+        var forced = /[?&]lang=(ta|en)\b/i.exec(location.search);
+        if (forced) {
+          var want = forced[1].toLowerCase();
+          store("mf-locale", want);
+          store("mf-locale-device", first);
+          if ((want === "ta") !== hereIsTamil) go(want === "ta");
+          return;
+        }
+
+        // Respect a manual switch, but only while the phone still speaks the language
+        // it was made in: changing the device language is itself an instruction.
+        var picked = read("mf-locale");
+        if (picked && read("mf-locale-device") === first) return;
+
+        store("mf-locale-device", first);
+        if (deviceIsTamil !== hereIsTamil) go(deviceIsTamil);
       })();
     </script>
     <title>@yield('title', __('site.meta.title'))</title>
@@ -53,8 +95,8 @@
     <meta name="twitter:description" content="{{ __('site.meta.og_description') }}" />
     <meta name="twitter:image" content="{{ $shareImage }}" />
     <meta name="twitter:image:alt" content="{{ __('site.meta.og_image_alt') }}" />
-    <link rel="icon" type="image/png" href="{{ asset('assets/images/logo.png') }}?v=20261105h" />
-    <link rel="apple-touch-icon" href="{{ asset('assets/images/logo.png') }}?v=20261105h" />
+    <link rel="icon" type="image/png" href="{{ asset('assets/images/logo.png') }}?v=20261105i" />
+    <link rel="apple-touch-icon" href="{{ asset('assets/images/logo.png') }}?v=20261105i" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -64,9 +106,9 @@
     <link rel="preload" as="image" href="{{ asset('assets/images/hero-farmer.jpg') }}?v=20261026c" />
     <link rel="stylesheet" href="{{ asset('vendor/sal/sal.css') }}" />
     <link rel="stylesheet" href="{{ asset('vendor/slick/slick.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}?v=20261105h" />
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}?v=20261105i" />
     @if ($site->stylesheet())
-      <link rel="stylesheet" href="{{ $site->stylesheet() }}?v=20261105h" />
+      <link rel="stylesheet" href="{{ $site->stylesheet() }}?v=20261105i" />
     @endif
   </head>
   <body class="site-{{ $site->key() }}">
@@ -112,9 +154,9 @@
     <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('vendor/slick/slick.min.js') }}"></script>
     <script src="{{ asset('vendor/sal/sal.js') }}"></script>
-    <script src="{{ asset('js/main.js') }}?v=20261105h"></script>
+    <script src="{{ asset('js/main.js') }}?v=20261105i"></script>
     @if ($site->script())
-      <script src="{{ $site->script() }}?v=20261105h"></script>
+      <script src="{{ $site->script() }}?v=20261105i"></script>
     @endif
   </body>
 </html>

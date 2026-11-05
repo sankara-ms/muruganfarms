@@ -132,6 +132,7 @@ return [
             'Natural cultivation with minimal chemical input',
             'Direct farm-to-home supply for local families',
         ],
+        'signature' => '— G. Murugan & M. Santhi',
         'signature_meta_name' => 'Murugan Farms',
         'signature_meta' => 'Udayanandhal Village · Tiruvannamalai District',
         'badge_title' => 'Many years',

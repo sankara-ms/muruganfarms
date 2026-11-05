@@ -187,6 +187,12 @@
       if (!code) return;
       try {
         window.localStorage.setItem("mf-locale", code);
+        // Tie the pick to the language the phone reports today, so switching the
+        // device language later re-opens detection instead of being blocked by it.
+        window.localStorage.setItem(
+          "mf-locale-device",
+          String((navigator.languages && navigator.languages[0]) || navigator.language || "en").toLowerCase()
+        );
       } catch (err) {
         /* private mode: the pick still works, it just is not remembered */
       }
