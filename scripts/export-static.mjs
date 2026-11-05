@@ -49,7 +49,7 @@ async function syncAssets() {
     await rm(path.join(target, dir), { recursive: true, force: true });
     await cp(path.join(publicDir, dir), path.join(target, dir), { recursive: true });
   }
-  await cp(path.join(publicDir, "site.webmanifest"), path.join(target, "site.webmanifest"));
+  await cp(path.join(publicDir, "manifest.json"), path.join(target, "manifest.json"));
 }
 
 await mkdir(path.join(target, "ta"), { recursive: true });

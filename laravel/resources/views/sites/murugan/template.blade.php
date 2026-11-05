@@ -37,7 +37,7 @@
     $sharePath = $shareLocale === 'ta' ? '/ta/' : '/';
     $shareImage = asset('assets/images/share-card.jpg');
 @endphp
-    <link rel="manifest" href="{{ asset('site.webmanifest') }}" />
+    <link rel="manifest" href="{{ asset('manifest.json') }}" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="{{ $site->config('name') }}" />
     <meta property="og:locale" content="{{ $shareLocale === 'ta' ? 'ta_IN' : 'en_US' }}" />
