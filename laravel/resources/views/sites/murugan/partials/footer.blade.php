@@ -8,7 +8,7 @@
   <div class="container footer-grid">
     <div class="footer-brand">
       <a class="brand" href="#home" aria-label="{{ __('site.a11y.back_to_top') }}">
-        <img class="brand-mark" src="{{ asset('assets/images/brand-mark.svg') }}" alt="" width="42" height="42" />
+        <img class="brand-mark" src="{{ asset('assets/images/logo.png') }}?v=20261105a" alt="" width="42" height="42" />
         <span class="brand-copy">
           <strong class="brand-name">{{ __('site.brand.name') }}</strong>
           <small class="brand-tag">{{ __('site.brand.tagline') }}</small>
@@ -61,7 +61,7 @@
       <p>© <span id="year"></span> {{ __('site.brand.name') }} · Tiruvannamalai, Tamil Nadu · TN-25</p>
       <p class="powered">
         {{ __('site.footer.powered') }}
-        <a href="https://sankara-profile.onrender.com/" target="_blank" rel="noreferrer">Sankara Profile</a>
+        <a href="https://sankara-profile.onrender.com/" target="_blank" rel="noreferrer">Sankar MS</a>
         · {{ __('site.footer.want_site') }}
         <a href="https://sankara-profile.onrender.com/" target="_blank" rel="noreferrer">{{ __('site.footer.contact_me') }}</a>
       </p>

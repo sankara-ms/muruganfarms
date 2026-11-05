@@ -14,7 +14,8 @@
     <meta property="og:description" content="{{ __('site.meta.og_description') }}" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="{{ asset('assets/images/hero-farmer.jpg') }}" />
-    <link rel="icon" type="image/svg+xml" href="{{ asset('assets/images/brand-mark.svg') }}" />
+    <link rel="icon" type="image/png" href="{{ asset('assets/images/logo.png') }}?v=20261105a" />
+    <link rel="apple-touch-icon" href="{{ asset('assets/images/logo.png') }}?v=20261105a" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

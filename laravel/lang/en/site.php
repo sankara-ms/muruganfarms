@@ -40,7 +40,7 @@ return [
         'location' => 'Tiruvannamalai, Tamil Nadu · TN-25',
         'title' => 'Fresh from our farm to your home',
         'text' => 'Natural and fresh farm products grown with care in Tiruvannamalai, Tamil Nadu. Supporting healthy families and a greener tomorrow.',
-        'note' => 'Family farm in Udayanadhal Village, Thenmathur Post, Tiruvannamalai District, Tamil Nadu.',
+        'note' => 'Family farm in Udayanandhal Village, Thenmathur Post, Tiruvannamalai District, Tamil Nadu.',
         'stamp_line_1' => 'Good Food',
         'stamp_line_2' => 'Brighter Tomorrow',
         'image_alt' => 'G. Murugan standing in his paddy field at Murugan Farms, Tiruvannamalai',
@@ -125,17 +125,17 @@ return [
     'about' => [
         'kicker' => 'About the Farmer',
         'title' => 'Grown with care, harvested with pride',
-        'text' => 'Murugan Farms is a small family-owned farm in Udayanadhal Village, Thenmathur Post, Tiruvannamalai District, Tamil Nadu. G. Murugan and M. Santhi have been cultivating various crops for many years with a focus on natural and healthy farming practices. Our goal is to provide fresh, quality farm products directly to families and local customers.',
+        'text' => 'Murugan Farms is a small family-owned farm in Udayanandhal Village, Thenmathur Post, Tiruvannamalai District, Tamil Nadu. G. Murugan and M. Santhi have been cultivating various crops for many years with a focus on natural and healthy farming practices. Our goal is to provide fresh, quality farm products directly to families and local customers.',
         'points' => [
             'Seasonal crop planning suited to the TN-25 region',
             'Natural cultivation with minimal chemical input',
             'Direct farm-to-home supply for local families',
         ],
         'signature_meta_name' => 'Murugan Farms',
-        'signature_meta' => 'Udayanadhal Village · Tiruvannamalai District',
+        'signature_meta' => 'Udayanandhal Village · Tiruvannamalai District',
         'badge_title' => 'Many years',
         'badge_text' => 'of hands-on farming experience',
-        'image_alt' => 'G. Murugan in his paddy field at Murugan Farms, Udayanadhal Village',
+        'image_alt' => 'G. Murugan in his paddy field at Murugan Farms, Udayanandhal Village',
     ],
 
     'gallery' => [
@@ -180,7 +180,7 @@ return [
         'location' => 'Location',
         'phone' => 'Phone',
         'email' => 'Email',
-        'address' => 'Udayanadhal Village, Thenmathur Post, Tiruvannamalai District, Tamil Nadu, India',
+        'address' => 'Udayanandhal Village, Thenmathur Post, Tiruvannamalai District, Tamil Nadu, India',
     ],
 
     'form' => [

@@ -6,7 +6,7 @@
 <header class="site-header" id="top">
   <div class="container header-inner">
     <a class="brand" href="#home" aria-label="{{ __('site.a11y.back_to_top') }}">
-      <img class="brand-mark" src="{{ asset('assets/images/brand-mark.svg') }}" alt="" width="46" height="46" />
+      <img class="brand-mark" src="{{ asset('assets/images/logo.png') }}?v=20261105a" alt="" width="46" height="46" />
       <span class="brand-copy">
         <strong class="brand-name">{{ __('site.brand.name') }}</strong>
         <small class="brand-tag">{{ __('site.brand.tagline') }}</small>

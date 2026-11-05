@@ -54,7 +54,7 @@ Missing views fall back to `sites/default`.
   their names, descriptions and captions come from the language files.
 - Contact details are configured under `contact` in `config/site.php`:
   - Owners: G. Murugan and M. Santhi
-  - Address: Udayanadhal Village, Thenmathur Post, Tiruvannamalai District, Tamil Nadu, India
+  - Address: Udayanandhal Village, Thenmathur Post, Tiruvannamalai District, Tamil Nadu, India
   - Phone / WhatsApp: `+91 94874 08709`
   - Email: `sankarnaece@gmail.com`
 
