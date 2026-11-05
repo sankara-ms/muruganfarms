@@ -8,7 +8,7 @@
   <div class="container footer-grid">
     <div class="footer-brand">
       <a class="brand" href="#home" aria-label="{{ __('site.a11y.back_to_top') }}">
-        <img class="brand-mark" src="{{ asset('assets/images/logo.png') }}?v=20261105d" alt="" width="42" height="42" />
+        <img class="brand-mark" src="{{ asset('assets/images/logo.png') }}?v=20261105e" alt="" width="42" height="42" />
         <span class="brand-copy">
           <strong class="brand-name">{{ __('site.brand.name') }}</strong>
           <small class="brand-tag">{{ __('site.brand.tagline') }}</small>
@@ -55,7 +55,7 @@
       </ul>
 
       <div class="footer-emblem" data-sal="fade" aria-hidden="true">
-        <img src="{{ asset('assets/images/footer-emblem.png') }}?v=20261105d" alt="" width="200" height="200" loading="lazy" />
+        <img src="{{ asset('assets/images/footer-emblem.png') }}?v=20261105e" alt="" width="200" height="200" loading="lazy" />
       </div>
     </div>
   </div>
@@ -64,10 +64,13 @@
     <div class="container footer-bottom-inner">
       <p>© <span id="year"></span> {{ __('site.brand.name') }} · Tiruvannamalai, Tamil Nadu · TN-25</p>
       <p class="powered">
-        {{ __('site.footer.powered') }}
-        <a href="https://sankara-profile.onrender.com/" target="_blank" rel="noreferrer">Sankar MS</a>
-        · {{ __('site.footer.want_site') }}
-        <a href="https://sankara-profile.onrender.com/" target="_blank" rel="noreferrer">{{ __('site.footer.contact_me') }}</a>
+        <span class="powered-lead">{{ __('site.footer.powered') }}</span>
+        <a class="dev-badge" href="https://sankara-profile.onrender.com/" target="_blank" rel="noreferrer">
+          <span class="dev-badge-dot" aria-hidden="true"></span>
+          Sankar MS
+        </a>
+        <span class="powered-ask">{{ __('site.footer.want_site') }}</span>
+        <a class="dev-cta" href="https://sankara-profile.onrender.com/" target="_blank" rel="noreferrer">{{ __('site.footer.contact_me') }}</a>
       </p>
     </div>
   </div>

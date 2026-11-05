@@ -1,9 +1,29 @@
 <!DOCTYPE html>
-<html lang="ta">
+<html data-static-locale lang="ta">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <script>
+      // Static builds only (the export tags <html data-static-locale>): the device's
+      // own language picks the page — Tamil first means Tamil, anything else English.
+      // A manual switch is remembered, so this never overwrites a real choice.
+      (function () {
+        var root = document.documentElement;
+        if (!root.hasAttribute("data-static-locale")) return;
+        var stored = "";
+        try { stored = localStorage.getItem("mf-locale") || ""; } catch (err) {}
+        if (stored) return;
+        var first = String((navigator.languages && navigator.languages[0]) || navigator.language || "en").toLowerCase();
+        var tamil = /^(ta)([-_]|$)/.test(first);
+        var here = (root.getAttribute("lang") || "en").toLowerCase();
+        if (tamil && here.indexOf("ta") !== 0) {
+          location.replace(new URL("ta/index.html", location.href).href);
+        } else if (!tamil && here.indexOf("ta") === 0) {
+          location.replace(new URL("../index.html", location.href).href);
+        }
+      })();
+    </script>
     <title>முருகன் பார்ம்ஸ் | புதிய விளைபொருள் • ஆரோக்கிய வாழ்க்கை • எங்கள் பண்ணையிலிருந்து</title>
     <meta name="description" content="முருகன் பார்ம்ஸ் — திருவண்ணாமலை, தமிழ்நாட்டிலிருந்து இயற்கையான, புதிய பண்ணைப் பொருட்கள் (TN-25). நெல், நிலக்கடலை, கரும்பு, சிறுதானியங்கள், தேங்காய், வாழை, காய்கறிகள், மஞ்சள், வெல்லம் மற்றும் பல." />
     <meta name="theme-color" content="#17573a" />
@@ -14,8 +34,8 @@
     <meta property="og:description" content="திருவண்ணாமலையில் அக்கறையுடன் விளைவிக்கப்படும் இயற்கையான, புதிய பண்ணைப் பொருட்கள்." />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="/assets/images/hero-farmer.jpg" />
-    <link rel="icon" type="image/png" href="/assets/images/logo.png?v=20261105d" />
-    <link rel="apple-touch-icon" href="/assets/images/logo.png?v=20261105d" />
+    <link rel="icon" type="image/png" href="/assets/images/logo.png?v=20261105e" />
+    <link rel="apple-touch-icon" href="/assets/images/logo.png?v=20261105e" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -25,8 +45,8 @@
     <link rel="preload" as="image" href="/assets/images/hero-farmer.jpg?v=20261026c" />
     <link rel="stylesheet" href="/vendor/sal/sal.css" />
     <link rel="stylesheet" href="/vendor/slick/slick.css" />
-    <link rel="stylesheet" href="/css/style.css?v=20261105d" />
-          <link rel="stylesheet" href="/sites/murugan/css/site.css?v=20261105d" />
+    <link rel="stylesheet" href="/css/style.css?v=20261105e" />
+          <link rel="stylesheet" href="/sites/murugan/css/site.css?v=20261105e" />
       </head>
   <body class="site-murugan">
     <a class="skip-link" href="#main">முதன்மை உள்ளடக்கத்திற்குச் செல்ல</a>
@@ -35,7 +55,7 @@
     <header class="site-header" id="top">
   <div class="container header-inner">
     <a class="brand" href="#home" aria-label="முருகன் பார்ம்ஸ் — மேலே செல்ல">
-      <img class="brand-mark" src="/assets/images/logo.png?v=20261105d" alt="" width="46" height="46" />
+      <img class="brand-mark" src="/assets/images/logo.png?v=20261105e" alt="" width="46" height="46" />
       <span class="brand-copy">
         <strong class="brand-name">முருகன் பார்ம்ஸ்</strong>
         <small class="brand-tag">புதிய விளைபொருள் • ஆரோக்கிய வாழ்க்கை • எங்கள் பண்ணையிலிருந்து</small>
@@ -692,7 +712,7 @@
   <div class="container footer-grid">
     <div class="footer-brand">
       <a class="brand" href="#home" aria-label="முருகன் பார்ம்ஸ் — மேலே செல்ல">
-        <img class="brand-mark" src="/assets/images/logo.png?v=20261105d" alt="" width="42" height="42" />
+        <img class="brand-mark" src="/assets/images/logo.png?v=20261105e" alt="" width="42" height="42" />
         <span class="brand-copy">
           <strong class="brand-name">முருகன் பார்ம்ஸ்</strong>
           <small class="brand-tag">புதிய விளைபொருள் • ஆரோக்கிய வாழ்க்கை • எங்கள் பண்ணையிலிருந்து</small>
@@ -739,7 +759,7 @@
       </ul>
 
       <div class="footer-emblem" data-sal="fade" aria-hidden="true">
-        <img src="/assets/images/footer-emblem.png?v=20261105d" alt="" width="200" height="200" loading="lazy" />
+        <img src="/assets/images/footer-emblem.png?v=20261105e" alt="" width="200" height="200" loading="lazy" />
       </div>
     </div>
   </div>
@@ -748,10 +768,13 @@
     <div class="container footer-bottom-inner">
       <p>© <span id="year"></span> முருகன் பார்ம்ஸ் · Tiruvannamalai, Tamil Nadu · TN-25</p>
       <p class="powered">
-        வழங்கியவர்
-        <a href="https://sankara-profile.onrender.com/" target="_blank" rel="noreferrer">Sankar MS</a>
-        · இதுபோன்ற இணையதளம் வேண்டுமா?
-        <a href="https://sankara-profile.onrender.com/" target="_blank" rel="noreferrer">என்னைத் தொடர்பு கொள்ள →</a>
+        <span class="powered-lead">வழங்கியவர்</span>
+        <a class="dev-badge" href="https://sankara-profile.onrender.com/" target="_blank" rel="noreferrer">
+          <span class="dev-badge-dot" aria-hidden="true"></span>
+          Sankar MS
+        </a>
+        <span class="powered-ask">இதுபோன்ற இணையதளம் வேண்டுமா?</span>
+        <a class="dev-cta" href="https://sankara-profile.onrender.com/" target="_blank" rel="noreferrer">என்னைத் தொடர்பு கொள்ள →</a>
       </p>
     </div>
   </div>
@@ -785,11 +808,21 @@
   </figure>
 </div>
 
+    <button class="to-top" id="toTop" type="button" aria-label="முருகன் பார்ம்ஸ் — மேலே செல்ல">
+      <svg class="to-top-ring" viewBox="0 0 44 44" aria-hidden="true">
+        <circle class="to-top-track" cx="22" cy="22" r="20" />
+        <circle class="to-top-bar" id="toTopBar" cx="22" cy="22" r="20" />
+      </svg>
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 19V5" /><path d="m5 12 7-7 7 7" />
+      </svg>
+    </button>
+
     <script>
       window.SITE = {
         locale: "ta",
         enquiryUrl: "/functions/v1/app",
-        csrf: "e00TqjvOmwMeGcPG0xHwECCu4qfWcomVoEph7EWC",
+        csrf: "DHHijFKdc1ssNvcTKmxeTG0bXaFqg2PehrW2dbIr",
         strings: {
           errors: {"name_required":"\u0b89\u0b99\u0bcd\u0b95\u0bb3\u0bcd \u0baa\u0bc6\u0baf\u0bb0\u0bc8 \u0b89\u0bb3\u0bcd\u0bb3\u0bbf\u0b9f\u0bb5\u0bc1\u0bae\u0bcd.","name_short":"\u0baa\u0bc6\u0baf\u0bb0\u0bcd \u0bae\u0bbf\u0b95\u0bb5\u0bc1\u0bae\u0bcd \u0b9a\u0bbf\u0bb1\u0bbf\u0baf\u0ba4\u0bbe\u0b95 \u0b89\u0bb3\u0bcd\u0bb3\u0ba4\u0bc1.","phone_required":"\u0b89\u0b99\u0bcd\u0b95\u0bb3\u0bcd \u0ba4\u0bca\u0bb2\u0bc8\u0baa\u0bc7\u0b9a\u0bbf \u0b8e\u0ba3\u0bcd\u0ba3\u0bc8 \u0b89\u0bb3\u0bcd\u0bb3\u0bbf\u0b9f\u0bb5\u0bc1\u0bae\u0bcd.","phone_invalid":"\u0b9a\u0bb0\u0bbf\u0baf\u0bbe\u0ba9 \u0ba4\u0bca\u0bb2\u0bc8\u0baa\u0bc7\u0b9a\u0bbf \u0b8e\u0ba3\u0bcd\u0ba3\u0bc8 \u0b89\u0bb3\u0bcd\u0bb3\u0bbf\u0b9f\u0bb5\u0bc1\u0bae\u0bcd (10\u201315 \u0b87\u0bb2\u0b95\u0bcd\u0b95\u0b99\u0bcd\u0b95\u0bb3\u0bcd).","message_required":"\u0b9a\u0bbf\u0bb1\u0bbf\u0baf \u0b9a\u0bc6\u0baf\u0bcd\u0ba4\u0bbf\u0baf\u0bc8 \u0b8e\u0bb4\u0bc1\u0ba4\u0bb5\u0bc1\u0bae\u0bcd.","message_short":"\u0b9a\u0bc6\u0baf\u0bcd\u0ba4\u0bbf \u0b95\u0bc1\u0bb1\u0bc8\u0ba8\u0bcd\u0ba4\u0ba4\u0bc1 10 \u0b8e\u0bb4\u0bc1\u0ba4\u0bcd\u0ba4\u0bc1\u0b95\u0bb3\u0bcd \u0b87\u0bb0\u0bc1\u0b95\u0bcd\u0b95 \u0bb5\u0bc7\u0ba3\u0bcd\u0b9f\u0bc1\u0bae\u0bcd."},
           sending: "\u0b85\u0ba9\u0bc1\u0baa\u0bcd\u0baa\u0bc1\u0b95\u0bbf\u0bb1\u0ba4\u0bc1\u2026",
@@ -804,7 +837,7 @@
     <script src="/vendor/jquery/jquery.min.js"></script>
     <script src="/vendor/slick/slick.min.js"></script>
     <script src="/vendor/sal/sal.js"></script>
-    <script src="/js/main.js?v=20261105d"></script>
-          <script src="/sites/murugan/js/site.js?v=20261105d"></script>
+    <script src="/js/main.js?v=20261105e"></script>
+          <script src="/sites/murugan/js/site.js?v=20261105e"></script>
       </body>
 </html>

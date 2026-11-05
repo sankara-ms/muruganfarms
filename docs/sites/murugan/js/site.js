@@ -177,9 +177,93 @@
     });
   }
 
+  /* ---------- Static builds: remember a manual language pick ---------- */
+  function initLocaleMemory() {
+    if (!document.documentElement.hasAttribute("data-static-locale")) return;
+    document.addEventListener("click", (event) => {
+      const option = event.target.closest(".lang-option");
+      if (!option) return;
+      const code = option.getAttribute("hreflang");
+      if (!code) return;
+      try {
+        window.localStorage.setItem("mf-locale", code);
+      } catch (err) {
+        /* private mode: the pick still works, it just is not remembered */
+      }
+    });
+  }
+
+  /* ---------- Hero title words rising into view ---------- */
+  function initHeroWords() {
+    const title = document.querySelector(".hero-copy h1");
+    if (!title || reduceMotion) return;
+
+    const words = (title.textContent || "").trim().split(/\s+/).filter(Boolean);
+    if (words.length < 2) return;
+
+    title.textContent = "";
+    words.forEach((word, index) => {
+      const mask = document.createElement("span");
+      mask.className = "hero-word";
+      mask.style.setProperty("--word-i", String(index));
+      const inner = document.createElement("span");
+      inner.className = "hero-word-inner";
+      inner.textContent = word;
+      mask.appendChild(inner);
+      title.appendChild(mask);
+      title.appendChild(document.createTextNode(" "));
+    });
+    title.classList.add("is-words-in");
+  }
+
+  /* ---------- Back to top, ringed with page progress ---------- */
+  function initBackToTop() {
+    const button = document.getElementById("toTop");
+    if (!button) return;
+
+    const bar = document.getElementById("toTopBar");
+    const length = bar ? 2 * Math.PI * Number(bar.getAttribute("r")) : 0;
+    if (bar && length) {
+      bar.style.strokeDasharray = String(length);
+      bar.style.strokeDashoffset = String(length);
+    }
+
+    let ticking = false;
+    const render = () => {
+      const y = window.scrollY;
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      button.classList.toggle("is-visible", y > 600);
+      // the footer credit owns the bottom-right corner once you reach the end
+      button.classList.toggle("is-raised", max - y < 96);
+      if (bar && length && max > 0) {
+        bar.style.strokeDashoffset = String(length * (1 - Math.min(1, y / max)));
+      }
+      ticking = false;
+    };
+
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (!ticking) {
+          ticking = true;
+          window.requestAnimationFrame(render);
+        }
+      },
+      { passive: true }
+    );
+
+    button.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+    });
+    render();
+  }
+
   document.addEventListener("DOMContentLoaded", () => {
     initProductSlider();
     initMagnetic();
     initSmoothAnchors();
+    initLocaleMemory();
+    initHeroWords();
+    initBackToTop();
   });
 })();

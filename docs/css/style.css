@@ -29,6 +29,10 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 96px;
+  /* Sections parked off-screen by the reveal animations can push the page wide
+     enough to swipe sideways after an anchor jump; clip at the root. */
+  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body {
@@ -731,6 +735,177 @@ p { margin: 0; }
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .btn:hover, .product-card:hover, .gallery-item img, .social-list a:hover { transform: none; }
+  .is-words-in .hero-word-inner { animation: none; }
+  .dev-badge-dot { animation: none; }
+  .form-success { animation: none; }
+  .section-head h2::after, .about-copy h2::after, .contact-info h2::after {
+    transform: scaleX(1);
+    transition: none;
+  }
+  .to-top { transition: background 0.2s ease; }
+  .to-top.is-visible { transform: none; }
+}
+
+/* ---------------- Hero title word rise ---------------- */
+.hero-word { display: inline-block; overflow: hidden; padding-bottom: 0.14em; margin-bottom: -0.14em; }
+.hero-word-inner { display: inline-block; }
+.is-words-in .hero-word-inner {
+  animation: word-rise 0.62s cubic-bezier(0.22, 0.68, 0.24, 1) backwards;
+  animation-delay: calc(var(--word-i) * 70ms);
+}
+@keyframes word-rise {
+  from { transform: translateY(112%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* ---------------- Heading accent, drawn as the section reveals ---------------- */
+.section-head h2::after, .about-copy h2::after, .contact-info h2::after {
+  content: "";
+  display: block;
+  width: 74px;
+  height: 3px;
+  margin-top: 10px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--gold), rgba(217, 169, 93, 0.12));
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.7s cubic-bezier(0.22, 0.68, 0.24, 1) 0.12s;
+}
+.section-head.sal-animate h2::after,
+.about-copy.sal-animate h2::after,
+.contact-card.sal-animate h2::after { transform: scaleX(1); }
+
+/* ---------------- Back to top, ringed with page progress ---------------- */
+.to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 22px;
+  z-index: 58;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--forest);
+  color: #fff;
+  box-shadow: 0 12px 26px rgba(12, 46, 31, 0.28);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(14px) scale(0.92);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease, background 0.2s ease, bottom 0.25s ease;
+}
+.to-top.is-visible { opacity: 1; visibility: visible; transform: none; }
+.to-top.is-raised { bottom: 88px; }
+.to-top:hover { background: var(--forest-deep); transform: translateY(-2px); }
+.to-top .icon { position: relative; z-index: 1; width: 20px; height: 20px; }
+.to-top-ring { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); }
+.to-top-track { fill: none; stroke: rgba(255, 255, 255, 0.24); stroke-width: 2.5; }
+.to-top-bar {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.12s linear;
+}
+
+/* ---------------- Developer credit ---------------- */
+.powered { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.powered-lead, .powered-ask { color: rgba(220, 234, 217, 0.7); }
+
+.powered .dev-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 13px;
+  border: 1px solid rgba(217, 169, 93, 0.5);
+  border-radius: 999px;
+  background: rgba(217, 169, 93, 0.12);
+  color: var(--gold);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  transition: transform 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+}
+.powered .dev-badge:hover {
+  text-decoration: none;
+  transform: translateY(-2px);
+  background: rgba(217, 169, 93, 0.2);
+  box-shadow: 0 8px 18px rgba(217, 169, 93, 0.22);
+}
+.dev-badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+  animation: credit-pulse 2.6s ease-out infinite;
+}
+@keyframes credit-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(217, 169, 93, 0.55); }
+  70% { box-shadow: 0 0 0 9px rgba(217, 169, 93, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(217, 169, 93, 0); }
+}
+
+.powered .dev-cta {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #e8bd76, var(--gold) 55%, #c8964a);
+  color: #2c1e08;
+  font-weight: 700;
+  font-size: 0.82rem;
+  box-shadow: 0 10px 22px rgba(217, 169, 93, 0.3);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.powered .dev-cta:hover {
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(217, 169, 93, 0.42);
+}
+
+/* ---------------- Gallery zoom cue ---------------- */
+.gallery-item::after {
+  content: "+";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(12, 46, 31, 0.72);
+  color: #fff;
+  font-size: 1.3rem;
+  line-height: 1;
+  opacity: 0;
+  transform: scale(0.7);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.gallery-item:hover::after, .gallery-item:focus-within::after { opacity: 1; transform: none; }
+
+/* ---------------- Enquiry confirmation ---------------- */
+.form-success {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  animation: success-in 0.35s ease;
+}
+.form-success::before {
+  content: "\2713";
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--forest);
+  color: #fff;
+  font-size: 0.75rem;
+}
+@keyframes success-in {
+  from { opacity: 0; transform: translateY(6px); }
 }
 
 /* ============================================================
@@ -840,4 +1015,7 @@ p { margin: 0; }
   .footer-bottom-inner { flex-direction: column; align-items: flex-start; gap: 6px; }
 
   .quick-bar { display: grid; }
+  /* the sticky call bar owns the bottom edge on phones */
+  .to-top { right: 14px; bottom: 84px; width: 42px; height: 42px; }
+  .to-top.is-raised { bottom: 150px; }
 }

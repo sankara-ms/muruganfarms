@@ -22,6 +22,7 @@ function readCookies(res, cookie) {
 
 function processHtml(html, locale) {
   let out = html
+    .replace("<html lang=", '<html data-static-locale lang=')
     .replaceAll(origin, "")
     .replaceAll("http:\\/\\/127.0.0.1:8000", "")
     .replaceAll('href="/locale/en"', 'href="/"')
@@ -29,6 +30,9 @@ function processHtml(html, locale) {
     .replaceAll("/api/enquiries", "/functions/v1/app")
     .replaceAll("\\/api\\/enquiries", "\\/functions\\/v1\\/app")
     .replaceAll("\\/", "/");
+  if (!out.includes("<html data-static-locale")) {
+    throw new Error("static locale marker missing in " + locale + " export");
+  }
   if (locale === "en" && !out.includes('enquiryUrl: "/functions/v1/app"')) {
     throw new Error("enquiryUrl rewrite missing in EN export");
   }

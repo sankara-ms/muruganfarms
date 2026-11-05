@@ -11,6 +11,7 @@ class LocaleController extends Controller
     {
         if (in_array($locale, site()->locales(), true)) {
             $request->session()->put('locale', $locale);
+            $request->session()->put('locale_choice', $locale);
         }
 
         return redirect()->to(url()->previous() ?: route('home'));
