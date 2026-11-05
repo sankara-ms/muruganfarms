@@ -101,6 +101,7 @@
 
     const query = window.matchMedia("(max-width: 700px)");
     const $grid = $(grid);
+    const marquee = !reduceMotion;
 
     const apply = () => {
       if (query.matches) {
@@ -108,12 +109,21 @@
           $grid.slick({
             slidesToShow: 1.12,
             slidesToScroll: 1,
-            infinite: false,
+            infinite: marquee,
             arrows: false,
             dots: true,
             swipeToSlide: true,
             touchThreshold: 8,
-            adaptiveHeight: true,
+            // Slick restarts the autoplay timer after each transition, so a long
+            // speed with a near-zero delay leaves no visible pause: the strip glides
+            // right to left without stopping.
+            adaptiveHeight: !marquee,
+            autoplay: marquee,
+            autoplaySpeed: 120,
+            speed: marquee ? 2500 : 500,
+            cssEase: "linear",
+            pauseOnHover: true,
+            pauseOnFocus: true,
           });
           // Slides parked off-screen inside the Slick track never intersect the
           // viewport, so SAL would leave them invisible. Reveal them explicitly.

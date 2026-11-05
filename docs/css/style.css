@@ -605,14 +605,14 @@ p { margin: 0; }
 .site-footer { background: var(--forest-ink); color: #dcead9; }
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 0.8fr 1fr;
+  grid-template-columns: 1.4fr 1fr 1fr;
   gap: 44px;
   padding: 56px 0 44px;
 }
-.footer-emblem { display: flex; align-items: center; justify-content: center; }
+.footer-emblem { margin-top: 24px; }
 .footer-emblem img {
   width: 100%;
-  max-width: 240px;
+  max-width: 200px;
   height: auto;
   aspect-ratio: 1;
   border-radius: 50%;
@@ -780,6 +780,7 @@ p { margin: 0; }
   .contact-info { padding: 38px 32px 30px; }
 
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 34px; }
+  .footer-social { grid-column: 1 / -1; }
 }
 
 /* ============================================================
