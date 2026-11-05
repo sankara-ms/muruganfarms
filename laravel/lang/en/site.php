@@ -7,6 +7,7 @@ return [
         'description' => 'Murugan Farms — natural and fresh farm products from Tiruvannamalai, Tamil Nadu (TN-25). Paddy, groundnut, sugarcane, millets, coconut, banana, vegetables, turmeric, jaggery and more.',
         'og_title' => 'Murugan Farms | Fresh from our farm to your home',
         'og_description' => 'Natural and fresh farm products grown with care in Tiruvannamalai, Tamil Nadu.',
+        'og_image_alt' => 'Murugan Farms emblem beside G. Murugan in his paddy field at Udayanandhal, Tiruvannamalai',
     ],
 
     'brand' => [

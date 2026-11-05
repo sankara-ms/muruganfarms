@@ -30,10 +30,29 @@
     <script>
       document.documentElement.classList.add("js");
     </script>
+@php
+    // Crawlers need one absolute URL per page, so the two static builds rewrite
+    // these root-relative values to their own host (see scripts/*.mjs).
+    $shareLocale = str_replace('_', '-', app()->getLocale());
+    $sharePath = $shareLocale === 'ta' ? '/ta/' : '/';
+    $shareImage = asset('assets/images/share-card.jpg');
+@endphp
+    <link rel="manifest" href="{{ asset('site.webmanifest') }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="{{ $site->config('name') }}" />
+    <meta property="og:locale" content="{{ $shareLocale === 'ta' ? 'ta_IN' : 'en_US' }}" />
+    <meta property="og:url" content="{{ $sharePath }}" />
     <meta property="og:title" content="{{ __('site.meta.og_title') }}" />
     <meta property="og:description" content="{{ __('site.meta.og_description') }}" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="{{ asset('assets/images/hero-farmer.jpg') }}" />
+    <meta property="og:image" content="{{ $shareImage }}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="{{ __('site.meta.og_image_alt') }}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{ __('site.meta.og_title') }}" />
+    <meta name="twitter:description" content="{{ __('site.meta.og_description') }}" />
+    <meta name="twitter:image" content="{{ $shareImage }}" />
+    <meta name="twitter:image:alt" content="{{ __('site.meta.og_image_alt') }}" />
     <link rel="icon" type="image/png" href="{{ asset('assets/images/logo.png') }}?v=20261105h" />
     <link rel="apple-touch-icon" href="{{ asset('assets/images/logo.png') }}?v=20261105h" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />

@@ -3,6 +3,7 @@
 // same-origin function calls, so this build posts to the email relay directly.
 import { cp, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
+import { pagesOrigin, stampShareOrigin } from "./share-hosts.mjs";
 
 const root = path.resolve(import.meta.dirname, "..");
 const source = path.join(root, "dist");
@@ -19,15 +20,23 @@ async function walk(dir) {
     if (entry.isDirectory()) await walk(full);
     else if (entry.name.endsWith(".html")) {
       const text = await readFile(full, "utf8");
-      const out = text
-        .replace(/(href|src|srcset)="\/(?!\/)/g, `$1="${base}`)
-        .replace(/enquiryUrl:\s*"\/functions\/v1\/app"/g, `enquiryUrl: "${endpoint}"`);
+      const out = stampShareOrigin(
+        text
+          .replace(/(href|src|srcset)="\/(?!\/)/g, `$1="${base}`)
+          .replace(/enquiryUrl:\s*"\/functions\/v1\/app"/g, `enquiryUrl: "${endpoint}"`),
+        pagesOrigin
+      );
       await writeFile(full, out);
     }
   }
 }
 
 await walk(target);
+
+const rootPage = await readFile(path.join(target, "index.html"), "utf8");
+if (!rootPage.includes(`og:image" content="${pagesOrigin}/assets/images/share-card.jpg"`)) {
+  throw new Error("Pages build did not stamp the share image origin");
+}
 
 // The relay rejects custom request headers during CORS preflight, and Laravel's
 // API routes do not use CSRF tokens.

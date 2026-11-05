@@ -2,6 +2,7 @@
 // static build to dist/. Asset folders are synced from laravel/public.
 import { cp, mkdir, readdir, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
+import { qoderOrigin, stampShareOrigin } from "./share-hosts.mjs";
 
 const root = path.resolve(import.meta.dirname, "..");
 const origin = "http://127.0.0.1:8000";
@@ -30,8 +31,12 @@ function processHtml(html, locale) {
     .replaceAll("/api/enquiries", "/functions/v1/app")
     .replaceAll("\\/api\\/enquiries", "\\/functions\\/v1\\/app")
     .replaceAll("\\/", "/");
+  out = stampShareOrigin(out, qoderOrigin);
   if (!out.includes("<html data-static-locale")) {
     throw new Error("static locale marker missing in " + locale + " export");
+  }
+  if (!out.includes(`og:image" content="${qoderOrigin}/assets/images/share-card.jpg"`)) {
+    throw new Error("absolute share image URL missing in " + locale + " export");
   }
   if (locale === "en" && !out.includes('enquiryUrl: "/functions/v1/app"')) {
     throw new Error("enquiryUrl rewrite missing in EN export");
@@ -44,6 +49,7 @@ async function syncAssets() {
     await rm(path.join(target, dir), { recursive: true, force: true });
     await cp(path.join(publicDir, dir), path.join(target, dir), { recursive: true });
   }
+  await cp(path.join(publicDir, "site.webmanifest"), path.join(target, "site.webmanifest"));
 }
 
 await mkdir(path.join(target, "ta"), { recursive: true });

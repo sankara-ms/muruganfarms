@@ -1,0 +1,27 @@
+{
+  "name": "Murugan Farms",
+  "short_name": "Murugan Farms",
+  "description": "Natural and fresh farm products from Udayanandhal, Tiruvannamalai, Tamil Nadu.",
+  "lang": "en",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#f6f1e4",
+  "theme_color": "#17573a",
+  "icons": [
+    {
+      "src": "assets/images/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/images/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
