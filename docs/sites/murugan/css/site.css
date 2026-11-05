@@ -103,19 +103,20 @@ html:not(.js) [data-sal] {
 /* ---------- Slick product strip (small screens) ---------- */
 .product-grid.slick-initialized { display: block; }
 
-.product-grid .slick-slide { height: auto; padding: 0; }
-.product-grid .slick-slide > div { height: 100%; }
-.product-grid .slick-list { margin: 0; padding-bottom: 4px; }
-.product-grid .slick-track { display: flex; }
+/* Once the grid becomes the strip, the 22px gap is gone. Margins restore it and
+   the negative list margin keeps the first card on the section edge. */
+.product-grid .slick-slide { height: auto; padding: 0; margin: 0 9px; }
+.product-grid .slick-list { margin: 0 -9px; padding-bottom: 4px; }
+.product-grid .slick-track { display: flex; align-items: stretch; }
 .product-grid .slick-track::before,
 .product-grid .slick-track::after { display: none; }
 
 /* Slick promotes the card itself to a slide and slick.css forces
-   `display:block` on slides, which kills the stacked card layout. */
+   `display:block` on slides, which kills the stacked card layout. No height
+   here: an explicit one stops the flex track from stretching cards level. */
 .product-grid.slick-initialized .product-card {
   display: flex;
   flex-direction: column;
-  height: 100%;
 }
 
 .product-grid.slick-initialized .product-card > img {

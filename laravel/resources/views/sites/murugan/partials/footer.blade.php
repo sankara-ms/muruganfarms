@@ -8,7 +8,7 @@
   <div class="container footer-grid">
     <div class="footer-brand">
       <a class="brand" href="#home" aria-label="{{ __('site.a11y.back_to_top') }}">
-        <img class="brand-mark" src="{{ asset('assets/images/logo.png') }}?v=20261105b" alt="" width="42" height="42" />
+        <img class="brand-mark" src="{{ asset('assets/images/logo.png') }}?v=20261105d" alt="" width="42" height="42" />
         <span class="brand-copy">
           <strong class="brand-name">{{ __('site.brand.name') }}</strong>
           <small class="brand-tag">{{ __('site.brand.tagline') }}</small>
@@ -55,7 +55,7 @@
       </ul>
 
       <div class="footer-emblem" data-sal="fade" aria-hidden="true">
-        <img src="{{ asset('assets/images/footer-emblem.png') }}?v=20261105b" alt="" width="200" height="200" loading="lazy" />
+        <img src="{{ asset('assets/images/footer-emblem.png') }}?v=20261105d" alt="" width="200" height="200" loading="lazy" />
       </div>
     </div>
   </div>
