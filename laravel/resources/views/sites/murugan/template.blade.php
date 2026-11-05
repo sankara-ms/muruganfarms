@@ -25,9 +25,9 @@
     <link rel="preload" as="image" href="{{ asset('assets/images/hero-farmer.jpg') }}?v=20261026c" />
     <link rel="stylesheet" href="{{ asset('vendor/sal/sal.css') }}" />
     <link rel="stylesheet" href="{{ asset('vendor/slick/slick.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}?v=20261104c" />
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}?v=20261105a" />
     @if ($site->stylesheet())
-      <link rel="stylesheet" href="{{ $site->stylesheet() }}?v=20261104c" />
+      <link rel="stylesheet" href="{{ $site->stylesheet() }}?v=20261105a" />
     @endif
   </head>
   <body class="site-{{ $site->key() }}">
@@ -63,9 +63,9 @@
     <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('vendor/slick/slick.min.js') }}"></script>
     <script src="{{ asset('vendor/sal/sal.js') }}"></script>
-    <script src="{{ asset('js/main.js') }}?v=20261104c"></script>
+    <script src="{{ asset('js/main.js') }}?v=20261105a"></script>
     @if ($site->script())
-      <script src="{{ $site->script() }}?v=20261104c"></script>
+      <script src="{{ $site->script() }}?v=20261105a"></script>
     @endif
   </body>
 </html>

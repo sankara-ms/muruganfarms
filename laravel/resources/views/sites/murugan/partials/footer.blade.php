@@ -54,6 +54,10 @@
         </li>
       </ul>
     </div>
+
+    <div class="footer-emblem" data-sal="fade" aria-hidden="true">
+      <img src="{{ asset('assets/images/footer-emblem.png') }}?v=20261105a" alt="" width="240" height="240" loading="lazy" />
+    </div>
   </div>
 
   <div class="footer-bottom">

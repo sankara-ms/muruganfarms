@@ -605,9 +605,18 @@ p { margin: 0; }
 .site-footer { background: var(--forest-ink); color: #dcead9; }
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr;
+  grid-template-columns: 1.4fr 1fr 0.8fr 1fr;
   gap: 44px;
   padding: 56px 0 44px;
+}
+.footer-emblem { display: flex; align-items: center; justify-content: center; }
+.footer-emblem img {
+  width: 100%;
+  max-width: 240px;
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
 }
 .footer-brand .brand-name { color: #fff; }
 .footer-brand .brand-tag { color: rgba(220, 234, 217, 0.66); }
