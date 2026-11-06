@@ -3,16 +3,16 @@
 // same-origin function calls, so this build posts to the email relay directly.
 import { cp, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
-import { pagesOrigin, qoderOrigin, stampShareOrigin } from "./share-hosts.mjs";
+import { pagesOrigin, stampShareOrigin } from "./share-hosts.mjs";
 
 const root = path.resolve(import.meta.dirname, "..");
 const source = path.join(root, "dist");
 const target = path.join(root, "docs");
 const base = "/muruganfarms/";
 const endpoint = "https://shipmyform.com/to/sankarnaece@gmail.com";
-// GitHub Pages runs no Function of its own, so the visit count is read from the
-// Qoder deployment across origins; the handler allowlists this host.
-const visitsEndpoint = `${qoderOrigin}/functions/v1/app/visits`;
+// GitHub Pages runs no Function of its own, and the Qoder gateway refuses a
+// Function call from another origin, so the counter stays off here: an empty
+// URL makes the page skip the request instead of logging a failed one.
 
 await rm(target, { recursive: true, force: true });
 await cp(source, target, { recursive: true });
@@ -27,7 +27,7 @@ async function walk(dir) {
         text
           .replace(/(href|src|srcset)="\/(?!\/)/g, `$1="${base}`)
           .replace(/enquiryUrl:\s*"\/functions\/v1\/app"/g, `enquiryUrl: "${endpoint}"`)
-          .replace(/visitUrl:\s*"\/functions\/v1\/app\/visits"/g, `visitUrl: "${visitsEndpoint}"`),
+          .replace(/visitUrl:\s*"\/functions\/v1\/app\/visits"/g, 'visitUrl: ""'),
         pagesOrigin
       );
       await writeFile(full, out);
@@ -41,8 +41,8 @@ const rootPage = await readFile(path.join(target, "index.html"), "utf8");
 if (!rootPage.includes(`og:image" content="${pagesOrigin}/assets/images/share-card.jpg"`)) {
   throw new Error("Pages build did not stamp the share image origin");
 }
-if (!rootPage.includes(`visitUrl: "${visitsEndpoint}"`)) {
-  throw new Error("Pages build did not point the visit counter at the Qoder function");
+if (!rootPage.includes('visitUrl: ""')) {
+  throw new Error("Pages build left the visit counter pointed at a cross-origin function");
 }
 
 // The relay rejects custom request headers during CORS preflight, and Laravel's

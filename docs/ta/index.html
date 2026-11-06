@@ -26,13 +26,17 @@
           // Kept free of backslash-escaped slashes: the static export unescapes them
           // mid-file and would leave an invalid pattern behind.
           var dir = location.href.split("#")[0].split("?")[0].replace(/[^/]*$/, "");
+          var inTaDir = dir.slice(-3) === "ta/";
           if (toTamil) {
-            location.replace(dir + "ta/index.html");
+            // Some hosts answer /ta/ with the English page, so a Tamil visitor
+            // already inside the Tamil directory needs the file, not a second
+            // "ta/" segment that leads to a dead path.
+            location.replace(inTaDir ? dir + "index.html" : dir + "ta/index.html");
             return;
           }
           // Only the Tamil directory has a known spelling, so recognise that and
           // nothing else — a guess here would send the visitor to a dead path.
-          if (dir.slice(-3) !== "ta/") return;
+          if (!inTaDir) return;
           location.replace(dir.slice(0, -3) + "index.html");
         }
 
@@ -1032,8 +1036,8 @@
       window.SITE = {
         locale: "ta",
         enquiryUrl: "https://shipmyform.com/to/sankarnaece@gmail.com",
-        visitUrl: "https://farmingmurugansanthi-22b74f79eo4.qoder.website/functions/v1/app/visits",
-        csrf: "qg17bW8guLKGtg3IhnBWLLDZwt9HiJffR98qKWYp",
+        visitUrl: "",
+        csrf: "67skBUmQT9ClOwl4d5057fjP8ykgfGTW3irkF5af",
         strings: {
           errors: {"name_required":"\u0b89\u0b99\u0bcd\u0b95\u0bb3\u0bcd \u0baa\u0bc6\u0baf\u0bb0\u0bc8 \u0b89\u0bb3\u0bcd\u0bb3\u0bbf\u0b9f\u0bb5\u0bc1\u0bae\u0bcd.","name_short":"\u0baa\u0bc6\u0baf\u0bb0\u0bcd \u0bae\u0bbf\u0b95\u0bb5\u0bc1\u0bae\u0bcd \u0b9a\u0bbf\u0bb1\u0bbf\u0baf\u0ba4\u0bbe\u0b95 \u0b89\u0bb3\u0bcd\u0bb3\u0ba4\u0bc1.","phone_required":"\u0b89\u0b99\u0bcd\u0b95\u0bb3\u0bcd \u0ba4\u0bca\u0bb2\u0bc8\u0baa\u0bc7\u0b9a\u0bbf \u0b8e\u0ba3\u0bcd\u0ba3\u0bc8 \u0b89\u0bb3\u0bcd\u0bb3\u0bbf\u0b9f\u0bb5\u0bc1\u0bae\u0bcd.","phone_invalid":"\u0b9a\u0bb0\u0bbf\u0baf\u0bbe\u0ba9 \u0ba4\u0bca\u0bb2\u0bc8\u0baa\u0bc7\u0b9a\u0bbf \u0b8e\u0ba3\u0bcd\u0ba3\u0bc8 \u0b89\u0bb3\u0bcd\u0bb3\u0bbf\u0b9f\u0bb5\u0bc1\u0bae\u0bcd (10\u201315 \u0b87\u0bb2\u0b95\u0bcd\u0b95\u0b99\u0bcd\u0b95\u0bb3\u0bcd).","message_required":"\u0b9a\u0bbf\u0bb1\u0bbf\u0baf \u0b9a\u0bc6\u0baf\u0bcd\u0ba4\u0bbf\u0baf\u0bc8 \u0b8e\u0bb4\u0bc1\u0ba4\u0bb5\u0bc1\u0bae\u0bcd.","message_short":"\u0b9a\u0bc6\u0baf\u0bcd\u0ba4\u0bbf \u0b95\u0bc1\u0bb1\u0bc8\u0ba8\u0bcd\u0ba4\u0ba4\u0bc1 10 \u0b8e\u0bb4\u0bc1\u0ba4\u0bcd\u0ba4\u0bc1\u0b95\u0bb3\u0bcd \u0b87\u0bb0\u0bc1\u0b95\u0bcd\u0b95 \u0bb5\u0bc7\u0ba3\u0bcd\u0b9f\u0bc1\u0bae\u0bcd."},
           sending: "\u0b85\u0ba9\u0bc1\u0baa\u0bcd\u0baa\u0bc1\u0b95\u0bbf\u0bb1\u0ba4\u0bc1\u2026",

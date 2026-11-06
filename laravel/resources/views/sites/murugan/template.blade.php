@@ -26,13 +26,17 @@
           // Kept free of backslash-escaped slashes: the static export unescapes them
           // mid-file and would leave an invalid pattern behind.
           var dir = location.href.split("#")[0].split("?")[0].replace(/[^/]*$/, "");
+          var inTaDir = dir.slice(-3) === "ta/";
           if (toTamil) {
-            location.replace(dir + "ta/index.html");
+            // Some hosts answer /ta/ with the English page, so a Tamil visitor
+            // already inside the Tamil directory needs the file, not a second
+            // "ta/" segment that leads to a dead path.
+            location.replace(inTaDir ? dir + "index.html" : dir + "ta/index.html");
             return;
           }
           // Only the Tamil directory has a known spelling, so recognise that and
           // nothing else — a guess here would send the visitor to a dead path.
-          if (dir.slice(-3) !== "ta/") return;
+          if (!inTaDir) return;
           location.replace(dir.slice(0, -3) + "index.html");
         }
 
