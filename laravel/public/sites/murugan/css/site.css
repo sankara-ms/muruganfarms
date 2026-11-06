@@ -238,9 +238,6 @@ html[lang="ta"] .btn {
     align-self: flex-start;
     margin-top: 10px;
   }
-
-  /* the translated tagline is too long for a phone header row */
-  html[lang="ta"] .brand-tag { display: none; }
 }
 
 /* ---------- Light polish: shine, zoom, icon pop ---------- */
@@ -286,6 +283,104 @@ html[lang="ta"] .btn {
   from { transform: scale(0.72); opacity: 0; }
 }
 
+/* ---------- WhatsApp order path ---------- */
+/* Tamil labels run longer than English, so the meta row can outgrow a
+   four-column card and spill past its edge. Let it drop to a second line. */
+.product-meta { flex-wrap: wrap; row-gap: 8px; }
+.product-actions { display: inline-flex; align-items: center; gap: 8px; margin-inline-start: auto; }
+
+.wa-order {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1.5px solid var(--line);
+  background: var(--cream-card);
+  color: var(--forest);
+  transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
+.wa-order .icon { width: 16px; height: 16px; }
+.wa-order:hover { background: var(--forest); border-color: var(--forest); color: #fff; }
+
+/* The header row stops growing with the viewport, so the nav, the language
+   switch and the two action pills compete for the same fixed width — and the
+   longer Tamil labels win by squeezing the brand into a narrow column.
+   Keep the pills on one line, drop the WhatsApp wordmark where the row is
+   tight, and let the decorative tagline step out before the name collapses. */
+@media (min-width: 901px) {
+  .header-actions .btn { white-space: nowrap; }
+}
+
+@media (max-width: 1199px) {
+  .wa-header .wa-label { display: none; }
+  .wa-header { padding-inline: 10px; }
+}
+
+html[lang="ta"] .wa-header .wa-label { display: none; }
+html[lang="ta"] .wa-header { padding-inline: 10px; }
+
+@media (min-width: 901px) and (max-width: 1279px) {
+  .brand-tag { display: none; }
+}
+
+html[lang="ta"] .brand-tag { display: none; }
+
+/* The Tamil nav labels run ~160px wider than the English ones, so the desktop
+   row runs out of room near 1100 rather than 900. Fold it into the menu button
+   a little earlier in Tamil instead of letting the brand collapse to a sliver. */
+@media (min-width: 901px) and (max-width: 1199px) {
+  html[lang="ta"] .main-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    padding: 14px 20px 20px;
+    background: var(--cream-card);
+    border-bottom: 1px solid var(--line);
+    box-shadow: var(--shadow-md);
+  }
+  html[lang="ta"] .main-nav.open { display: flex; }
+  html[lang="ta"] .nav-link { padding: 13px 16px; border-radius: 12px; }
+  html[lang="ta"] .menu-toggle { display: inline-flex; }
+}
+
+/* ---------- Live visit count ---------- */
+.visit-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--cream-card);
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+/* The chip is revealed by the counter script; display would otherwise beat
+   the hidden attribute and show a pill of zeros. */
+.visit-chip[hidden] { display: none; }
+.visit-chip strong { color: var(--forest); font-weight: 700; font-variant-numeric: tabular-nums; }
+.visit-sep { color: var(--line); }
+.visit-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+  animation: visit-pulse 2.4s ease-out infinite;
+}
+@keyframes visit-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(217, 169, 93, 0.55); }
+  70% { box-shadow: 0 0 0 9px rgba(217, 169, 93, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(217, 169, 93, 0); }
+}
+
 /* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   .ken-burns { animation: none; }
@@ -296,6 +391,7 @@ html[lang="ta"] .btn {
   .btn-magnetic { transition: none; }
   .btn::after { display: none; }
   .value-item .value-icon { animation: none; transition: none; }
+  .visit-dot { animation: none; }
   .site-header { transition: none; }
   .scroll-progress span { transition: none; }
 }

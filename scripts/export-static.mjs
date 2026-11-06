@@ -30,6 +30,8 @@ function processHtml(html, locale) {
     .replaceAll('href="/locale/ta"', 'href="/ta/index.html"')
     .replaceAll("/api/enquiries", "/functions/v1/app")
     .replaceAll("\\/api\\/enquiries", "\\/functions\\/v1\\/app")
+    .replaceAll("/api/visits", "/functions/v1/app/visits")
+    .replaceAll("\\/api\\/visits", "\\/functions\\/v1\\/app\\/visits")
     .replaceAll("\\/", "/");
   out = stampShareOrigin(out, qoderOrigin);
   if (!out.includes("<html data-static-locale")) {
@@ -40,6 +42,9 @@ function processHtml(html, locale) {
   }
   if (locale === "en" && !out.includes('enquiryUrl: "/functions/v1/app"')) {
     throw new Error("enquiryUrl rewrite missing in EN export");
+  }
+  if (locale === "en" && !out.includes('visitUrl: "/functions/v1/app/visits"')) {
+    throw new Error("visitUrl rewrite missing in EN export");
   }
   return out;
 }

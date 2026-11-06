@@ -33,8 +33,14 @@ return [
         'send_enquiry' => 'Send Enquiry',
         'send_enquiry_title' => 'Send an Enquiry',
         'whatsapp' => 'WhatsApp',
+        'order_on_whatsapp' => 'Order on WhatsApp',
         'menu_open' => 'Open navigation menu',
         'menu_close' => 'Close navigation menu',
+    ],
+
+    'visits' => [
+        'total_label' => 'visits so far',
+        'today_label' => 'today',
     ],
 
     'hero' => [
@@ -53,6 +59,7 @@ return [
         'side' => 'Locally Grown | Naturally Cultivated | Good for Healthy Life',
         'note' => 'Sample catalogue — actual inventory changes with the season. Please enquire to confirm current availability.',
         'price' => 'Price on enquiry',
+        'order_text' => 'Hello Murugan Farms, I would like to order %s. Please share the price and availability.',
         'items' => [
             'rice' => [
                 'name' => 'Rice / Paddy',

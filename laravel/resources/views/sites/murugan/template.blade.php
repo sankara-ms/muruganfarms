@@ -95,8 +95,8 @@
     <meta name="twitter:description" content="{{ __('site.meta.og_description') }}" />
     <meta name="twitter:image" content="{{ $shareImage }}" />
     <meta name="twitter:image:alt" content="{{ __('site.meta.og_image_alt') }}" />
-    <link rel="icon" type="image/png" href="{{ asset('assets/images/logo.png') }}?v=20261105i" />
-    <link rel="apple-touch-icon" href="{{ asset('assets/images/logo.png') }}?v=20261105i" />
+    <link rel="icon" type="image/png" href="{{ asset('assets/images/logo.png') }}?v=20261106b" />
+    <link rel="apple-touch-icon" href="{{ asset('assets/images/logo.png') }}?v=20261106b" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -106,9 +106,9 @@
     <link rel="preload" as="image" href="{{ asset('assets/images/hero-farmer.jpg') }}?v=20261026c" />
     <link rel="stylesheet" href="{{ asset('vendor/sal/sal.css') }}" />
     <link rel="stylesheet" href="{{ asset('vendor/slick/slick.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}?v=20261105i" />
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}?v=20261106b" />
     @if ($site->stylesheet())
-      <link rel="stylesheet" href="{{ $site->stylesheet() }}?v=20261105i" />
+      <link rel="stylesheet" href="{{ $site->stylesheet() }}?v=20261106b" />
     @endif
   </head>
   <body class="site-{{ $site->key() }}">
@@ -139,6 +139,7 @@
       window.SITE = {
         locale: @json(app()->getLocale()),
         enquiryUrl: @json(route('api.enquiries.store')),
+        visitUrl: @json(route('api.visits.store')),
         csrf: @json(csrf_token()),
         strings: {
           errors: @json(__('site.form.errors')),
@@ -154,9 +155,9 @@
     <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('vendor/slick/slick.min.js') }}"></script>
     <script src="{{ asset('vendor/sal/sal.js') }}"></script>
-    <script src="{{ asset('js/main.js') }}?v=20261105i"></script>
+    <script src="{{ asset('js/main.js') }}?v=20261106b"></script>
     @if ($site->script())
-      <script src="{{ $site->script() }}?v=20261105i"></script>
+      <script src="{{ $site->script() }}?v=20261106b"></script>
     @endif
   </body>
 </html>

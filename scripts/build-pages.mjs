@@ -3,13 +3,16 @@
 // same-origin function calls, so this build posts to the email relay directly.
 import { cp, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
-import { pagesOrigin, stampShareOrigin } from "./share-hosts.mjs";
+import { pagesOrigin, qoderOrigin, stampShareOrigin } from "./share-hosts.mjs";
 
 const root = path.resolve(import.meta.dirname, "..");
 const source = path.join(root, "dist");
 const target = path.join(root, "docs");
 const base = "/muruganfarms/";
 const endpoint = "https://shipmyform.com/to/sankarnaece@gmail.com";
+// GitHub Pages runs no Function of its own, so the visit count is read from the
+// Qoder deployment across origins; the handler allowlists this host.
+const visitsEndpoint = `${qoderOrigin}/functions/v1/app/visits`;
 
 await rm(target, { recursive: true, force: true });
 await cp(source, target, { recursive: true });
@@ -23,7 +26,8 @@ async function walk(dir) {
       const out = stampShareOrigin(
         text
           .replace(/(href|src|srcset)="\/(?!\/)/g, `$1="${base}`)
-          .replace(/enquiryUrl:\s*"\/functions\/v1\/app"/g, `enquiryUrl: "${endpoint}"`),
+          .replace(/enquiryUrl:\s*"\/functions\/v1\/app"/g, `enquiryUrl: "${endpoint}"`)
+          .replace(/visitUrl:\s*"\/functions\/v1\/app\/visits"/g, `visitUrl: "${visitsEndpoint}"`),
         pagesOrigin
       );
       await writeFile(full, out);
@@ -36,6 +40,9 @@ await walk(target);
 const rootPage = await readFile(path.join(target, "index.html"), "utf8");
 if (!rootPage.includes(`og:image" content="${pagesOrigin}/assets/images/share-card.jpg"`)) {
   throw new Error("Pages build did not stamp the share image origin");
+}
+if (!rootPage.includes(`visitUrl: "${visitsEndpoint}"`)) {
+  throw new Error("Pages build did not point the visit counter at the Qoder function");
 }
 
 // The relay rejects custom request headers during CORS preflight, and Laravel's

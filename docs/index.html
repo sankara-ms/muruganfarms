@@ -88,8 +88,8 @@
     <meta name="twitter:description" content="Natural and fresh farm products grown with care in Tiruvannamalai, Tamil Nadu." />
     <meta name="twitter:image" content="https://sankara-ms.github.io/muruganfarms/assets/images/share-card.jpg" />
     <meta name="twitter:image:alt" content="Murugan Farms emblem beside G. Murugan in his paddy field at Udayanandhal, Tiruvannamalai" />
-    <link rel="icon" type="image/png" href="/muruganfarms/assets/images/logo.png?v=20261105i" />
-    <link rel="apple-touch-icon" href="/muruganfarms/assets/images/logo.png?v=20261105i" />
+    <link rel="icon" type="image/png" href="/muruganfarms/assets/images/logo.png?v=20261106b" />
+    <link rel="apple-touch-icon" href="/muruganfarms/assets/images/logo.png?v=20261106b" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -99,8 +99,8 @@
     <link rel="preload" as="image" href="/muruganfarms/assets/images/hero-farmer.jpg?v=20261026c" />
     <link rel="stylesheet" href="/muruganfarms/vendor/sal/sal.css" />
     <link rel="stylesheet" href="/muruganfarms/vendor/slick/slick.css" />
-    <link rel="stylesheet" href="/muruganfarms/css/style.css?v=20261105i" />
-          <link rel="stylesheet" href="/muruganfarms/sites/murugan/css/site.css?v=20261105i" />
+    <link rel="stylesheet" href="/muruganfarms/css/style.css?v=20261106b" />
+          <link rel="stylesheet" href="/muruganfarms/sites/murugan/css/site.css?v=20261106b" />
       </head>
   <body class="site-murugan">
     <a class="skip-link" href="#main">Skip to main content</a>
@@ -109,7 +109,7 @@
     <header class="site-header" id="top">
   <div class="container header-inner">
     <a class="brand" href="#home" aria-label="Murugan Farms — back to top">
-      <img class="brand-mark" src="/muruganfarms/assets/images/logo.png?v=20261105i" alt="" width="46" height="46" />
+      <img class="brand-mark" src="/muruganfarms/assets/images/logo.png?v=20261106b" alt="" width="46" height="46" />
       <span class="brand-copy">
         <strong class="brand-name">Murugan Farms</strong>
         <small class="brand-tag">Fresh Produce • Healthy Life • From Our Farm</small>
@@ -164,6 +164,13 @@
         Call Now
       </a>
 
+      <a class="btn btn-outline btn-small wa-header" href="https://wa.me/919487408709" target="_blank" rel="noreferrer" title="WhatsApp">
+        <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.47-2.4-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01s-.52.07-.79.37c-.27.3-1.04 1.02-1.04 2.48s1.06 2.87 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.18-1.42-.08-.12-.28-.2-.57-.34m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88a9.83 9.83 0 0 1 6.99 2.9 9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.9 11.9 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41z"/>
+        </svg>
+        <span class="wa-label">WhatsApp</span>
+      </a>
+
       <button
         class="menu-toggle"
         type="button"
@@ -209,6 +216,15 @@
           </a>
         </div>
         <p class="hero-note">Family farm in Udayanandhal Village, Thenmathur Post, Tiruvannamalai District, Tamil Nadu.</p>
+
+        <p class="visit-chip" id="visitChip" hidden>
+          <span class="visit-dot" aria-hidden="true"></span>
+          <span><strong id="visitCount">0</strong> visits so far</span>
+          <span class="visit-today" id="visitTodayGroup">
+            <span class="visit-sep" aria-hidden="true">·</span>
+            <strong id="visitToday">0</strong> today
+          </span>
+        </p>
       </div>
 
       <div class="hero-visual" data-sal="zoom-in" data-sal-duration="900" data-sal-delay="120" data-sal-easing="ease-out-back">
@@ -265,12 +281,26 @@
               <p>Traditional and quality rice varieties from our fields.</p>
               <div class="product-meta">
                 <span class="product-price">Price on enquiry</span>
-                <button type="button" class="enquire-btn" data-product="rice">
-                  Enquire
-                  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M5 12h14"/><path d="M12 5l7 7-7 7"/>
-                  </svg>
-                </button>
+                <span class="product-actions">
+                  <button type="button" class="enquire-btn" data-product="rice">
+                    Enquire
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M5 12h14"/><path d="M12 5l7 7-7 7"/>
+                    </svg>
+                  </button>
+                  <a
+                    class="wa-order"
+                    href="https://wa.me/919487408709?text=Hello%20Murugan%20Farms%2C%20I%20would%20like%20to%20order%20Rice%20%2F%20Paddy.%20Please%20share%20the%20price%20and%20availability."
+                    target="_blank"
+                    rel="noreferrer"
+                    title="Order on WhatsApp"
+                    aria-label="Order on WhatsApp — Rice / Paddy"
+                  >
+                    <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.47-2.4-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01s-.52.07-.79.37c-.27.3-1.04 1.02-1.04 2.48s1.06 2.87 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.18-1.42-.08-.12-.28-.2-.57-.34m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88a9.83 9.83 0 0 1 6.99 2.9 9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.9 11.9 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41z"/>
+                    </svg>
+                  </a>
+                </span>
               </div>
             </div>
           </article>
@@ -286,12 +316,26 @@
               <p>Fresh groundnuts from our farm.</p>
               <div class="product-meta">
                 <span class="product-price">Price on enquiry</span>
-                <button type="button" class="enquire-btn" data-product="groundnut">
-                  Enquire
-                  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M5 12h14"/><path d="M12 5l7 7-7 7"/>
-                  </svg>
-                </button>
+                <span class="product-actions">
+                  <button type="button" class="enquire-btn" data-product="groundnut">
+                    Enquire
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M5 12h14"/><path d="M12 5l7 7-7 7"/>
+                    </svg>
+                  </button>
+                  <a
+                    class="wa-order"
+                    href="https://wa.me/919487408709?text=Hello%20Murugan%20Farms%2C%20I%20would%20like%20to%20order%20Groundnut.%20Please%20share%20the%20price%20and%20availability."
+                    target="_blank"
+                    rel="noreferrer"
+                    title="Order on WhatsApp"
+                    aria-label="Order on WhatsApp — Groundnut"
+                  >
+                    <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.47-2.4-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01s-.52.07-.79.37c-.27.3-1.04 1.02-1.04 2.48s1.06 2.87 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.18-1.42-.08-.12-.28-.2-.57-.34m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88a9.83 9.83 0 0 1 6.99 2.9 9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.9 11.9 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41z"/>
+                    </svg>
+                  </a>
+                </span>
               </div>
             </div>
           </article>
@@ -307,12 +351,26 @@
               <p>Naturally grown sugarcane with great taste.</p>
               <div class="product-meta">
                 <span class="product-price">Price on enquiry</span>
-                <button type="button" class="enquire-btn" data-product="sugarcane">
-                  Enquire
-                  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M5 12h14"/><path d="M12 5l7 7-7 7"/>
-                  </svg>
-                </button>
+                <span class="product-actions">
+                  <button type="button" class="enquire-btn" data-product="sugarcane">
+                    Enquire
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M5 12h14"/><path d="M12 5l7 7-7 7"/>
+                    </svg>
+                  </button>
+                  <a
+                    class="wa-order"
+                    href="https://wa.me/919487408709?text=Hello%20Murugan%20Farms%2C%20I%20would%20like%20to%20order%20Sugarcane.%20Please%20share%20the%20price%20and%20availability."
+                    target="_blank"
+                    rel="noreferrer"
+                    title="Order on WhatsApp"
+                    aria-label="Order on WhatsApp — Sugarcane"
+                  >
+                    <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.47-2.4-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01s-.52.07-.79.37c-.27.3-1.04 1.02-1.04 2.48s1.06 2.87 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.18-1.42-.08-.12-.28-.2-.57-.34m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88a9.83 9.83 0 0 1 6.99 2.9 9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.9 11.9 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41z"/>
+                    </svg>
+                  </a>
+                </span>
               </div>
             </div>
           </article>
@@ -328,12 +386,26 @@
               <p>Ragi, Thinai, Samai, Kambu and other millets.</p>
               <div class="product-meta">
                 <span class="product-price">Price on enquiry</span>
-                <button type="button" class="enquire-btn" data-product="millets">
-                  Enquire
-                  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M5 12h14"/><path d="M12 5l7 7-7 7"/>
-                  </svg>
-                </button>
+                <span class="product-actions">
+                  <button type="button" class="enquire-btn" data-product="millets">
+                    Enquire
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M5 12h14"/><path d="M12 5l7 7-7 7"/>
+                    </svg>
+                  </button>
+                  <a
+                    class="wa-order"
+                    href="https://wa.me/919487408709?text=Hello%20Murugan%20Farms%2C%20I%20would%20like%20to%20order%20Millets.%20Please%20share%20the%20price%20and%20availability."
+                    target="_blank"
+                    rel="noreferrer"
+                    title="Order on WhatsApp"
+                    aria-label="Order on WhatsApp — Millets"
+                  >
+                    <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.47-2.4-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01s-.52.07-.79.37c-.27.3-1.04 1.02-1.04 2.48s1.06 2.87 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.18-1.42-.08-.12-.28-.2-.57-.34m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88a9.83 9.83 0 0 1 6.99 2.9 9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.9 11.9 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41z"/>
+                    </svg>
+                  </a>
+                </span>
               </div>
             </div>
           </article>
@@ -349,12 +421,26 @@
               <p>Fresh coconuts for home and business use.</p>
               <div class="product-meta">
                 <span class="product-price">Price on enquiry</span>
-                <button type="button" class="enquire-btn" data-product="coconut">
-                  Enquire
-                  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M5 12h14"/><path d="M12 5l7 7-7 7"/>
-                  </svg>
-                </button>
+                <span class="product-actions">
+                  <button type="button" class="enquire-btn" data-product="coconut">
+                    Enquire
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M5 12h14"/><path d="M12 5l7 7-7 7"/>
+                    </svg>
+                  </button>
+                  <a
+                    class="wa-order"
+                    href="https://wa.me/919487408709?text=Hello%20Murugan%20Farms%2C%20I%20would%20like%20to%20order%20Coconut.%20Please%20share%20the%20price%20and%20availability."
+                    target="_blank"
+                    rel="noreferrer"
+                    title="Order on WhatsApp"
+                    aria-label="Order on WhatsApp — Coconut"
+                  >
+                    <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.47-2.4-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01s-.52.07-.79.37c-.27.3-1.04 1.02-1.04 2.48s1.06 2.87 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.18-1.42-.08-.12-.28-.2-.57-.34m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88a9.83 9.83 0 0 1 6.99 2.9 9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.9 11.9 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41z"/>
+                    </svg>
+                  </a>
+                </span>
               </div>
             </div>
           </article>
@@ -370,12 +456,26 @@
               <p>Farm fresh bananas with great taste.</p>
               <div class="product-meta">
                 <span class="product-price">Price on enquiry</span>
-                <button type="button" class="enquire-btn" data-product="banana">
-                  Enquire
-                  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M5 12h14"/><path d="M12 5l7 7-7 7"/>
-                  </svg>
-                </button>
+                <span class="product-actions">
+                  <button type="button" class="enquire-btn" data-product="banana">
+                    Enquire
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M5 12h14"/><path d="M12 5l7 7-7 7"/>
+                    </svg>
+                  </button>
+                  <a
+                    class="wa-order"
+                    href="https://wa.me/919487408709?text=Hello%20Murugan%20Farms%2C%20I%20would%20like%20to%20order%20Banana.%20Please%20share%20the%20price%20and%20availability."
+                    target="_blank"
+                    rel="noreferrer"
+                    title="Order on WhatsApp"
+                    aria-label="Order on WhatsApp — Banana"
+                  >
+                    <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.47-2.4-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01s-.52.07-.79.37c-.27.3-1.04 1.02-1.04 2.48s1.06 2.87 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.18-1.42-.08-.12-.28-.2-.57-.34m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88a9.83 9.83 0 0 1 6.99 2.9 9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.9 11.9 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41z"/>
+                    </svg>
+                  </a>
+                </span>
               </div>
             </div>
           </article>
@@ -391,12 +491,26 @@
               <p>Tomato, Brinjal, Okra, Drumstick, Greens and more.</p>
               <div class="product-meta">
                 <span class="product-price">Price on enquiry</span>
-                <button type="button" class="enquire-btn" data-product="vegetables">
-                  Enquire
-                  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M5 12h14"/><path d="M12 5l7 7-7 7"/>
-                  </svg>
-                </button>
+                <span class="product-actions">
+                  <button type="button" class="enquire-btn" data-product="vegetables">
+                    Enquire
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M5 12h14"/><path d="M12 5l7 7-7 7"/>
+                    </svg>
+                  </button>
+                  <a
+                    class="wa-order"
+                    href="https://wa.me/919487408709?text=Hello%20Murugan%20Farms%2C%20I%20would%20like%20to%20order%20Vegetables.%20Please%20share%20the%20price%20and%20availability."
+                    target="_blank"
+                    rel="noreferrer"
+                    title="Order on WhatsApp"
+                    aria-label="Order on WhatsApp — Vegetables"
+                  >
+                    <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.47-2.4-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01s-.52.07-.79.37c-.27.3-1.04 1.02-1.04 2.48s1.06 2.87 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.18-1.42-.08-.12-.28-.2-.57-.34m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88a9.83 9.83 0 0 1 6.99 2.9 9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.9 11.9 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41z"/>
+                    </svg>
+                  </a>
+                </span>
               </div>
             </div>
           </article>
@@ -412,12 +526,26 @@
               <p>Natural turmeric and traditional jaggery.</p>
               <div class="product-meta">
                 <span class="product-price">Price on enquiry</span>
-                <button type="button" class="enquire-btn" data-product="turmeric">
-                  Enquire
-                  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M5 12h14"/><path d="M12 5l7 7-7 7"/>
-                  </svg>
-                </button>
+                <span class="product-actions">
+                  <button type="button" class="enquire-btn" data-product="turmeric">
+                    Enquire
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M5 12h14"/><path d="M12 5l7 7-7 7"/>
+                    </svg>
+                  </button>
+                  <a
+                    class="wa-order"
+                    href="https://wa.me/919487408709?text=Hello%20Murugan%20Farms%2C%20I%20would%20like%20to%20order%20Turmeric%20%26%20Jaggery.%20Please%20share%20the%20price%20and%20availability."
+                    target="_blank"
+                    rel="noreferrer"
+                    title="Order on WhatsApp"
+                    aria-label="Order on WhatsApp — Turmeric &amp; Jaggery"
+                  >
+                    <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.47-2.4-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01s-.52.07-.79.37c-.27.3-1.04 1.02-1.04 2.48s1.06 2.87 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.18-1.42-.08-.12-.28-.2-.57-.34m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88a9.83 9.83 0 0 1 6.99 2.9 9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.9 11.9 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41z"/>
+                    </svg>
+                  </a>
+                </span>
               </div>
             </div>
           </article>
@@ -433,12 +561,26 @@
               <p>Mango, Guava, Jackfruit and seasonal fruits.</p>
               <div class="product-meta">
                 <span class="product-price">Price on enquiry</span>
-                <button type="button" class="enquire-btn" data-product="fruits">
-                  Enquire
-                  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M5 12h14"/><path d="M12 5l7 7-7 7"/>
-                  </svg>
-                </button>
+                <span class="product-actions">
+                  <button type="button" class="enquire-btn" data-product="fruits">
+                    Enquire
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M5 12h14"/><path d="M12 5l7 7-7 7"/>
+                    </svg>
+                  </button>
+                  <a
+                    class="wa-order"
+                    href="https://wa.me/919487408709?text=Hello%20Murugan%20Farms%2C%20I%20would%20like%20to%20order%20Fruits.%20Please%20share%20the%20price%20and%20availability."
+                    target="_blank"
+                    rel="noreferrer"
+                    title="Order on WhatsApp"
+                    aria-label="Order on WhatsApp — Fruits"
+                  >
+                    <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.47-2.4-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01s-.52.07-.79.37c-.27.3-1.04 1.02-1.04 2.48s1.06 2.87 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.18-1.42-.08-.12-.28-.2-.57-.34m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88a9.83 9.83 0 0 1 6.99 2.9 9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.9 11.9 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41z"/>
+                    </svg>
+                  </a>
+                </span>
               </div>
             </div>
           </article>
@@ -454,12 +596,26 @@
               <p>Moringa leaves, agathi keerai and more.</p>
               <div class="product-meta">
                 <span class="product-price">Price on enquiry</span>
-                <button type="button" class="enquire-btn" data-product="greens">
-                  Enquire
-                  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M5 12h14"/><path d="M12 5l7 7-7 7"/>
-                  </svg>
-                </button>
+                <span class="product-actions">
+                  <button type="button" class="enquire-btn" data-product="greens">
+                    Enquire
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M5 12h14"/><path d="M12 5l7 7-7 7"/>
+                    </svg>
+                  </button>
+                  <a
+                    class="wa-order"
+                    href="https://wa.me/919487408709?text=Hello%20Murugan%20Farms%2C%20I%20would%20like%20to%20order%20Greens%20%2F%20Herbal.%20Please%20share%20the%20price%20and%20availability."
+                    target="_blank"
+                    rel="noreferrer"
+                    title="Order on WhatsApp"
+                    aria-label="Order on WhatsApp — Greens / Herbal"
+                  >
+                    <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.47-2.4-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01s-.52.07-.79.37c-.27.3-1.04 1.02-1.04 2.48s1.06 2.87 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.18-1.42-.08-.12-.28-.2-.57-.34m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88a9.83 9.83 0 0 1 6.99 2.9 9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.9 11.9 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41z"/>
+                    </svg>
+                  </a>
+                </span>
               </div>
             </div>
           </article>
@@ -766,7 +922,7 @@
   <div class="container footer-grid">
     <div class="footer-brand">
       <a class="brand" href="#home" aria-label="Murugan Farms — back to top">
-        <img class="brand-mark" src="/muruganfarms/assets/images/logo.png?v=20261105i" alt="" width="42" height="42" />
+        <img class="brand-mark" src="/muruganfarms/assets/images/logo.png?v=20261106b" alt="" width="42" height="42" />
         <span class="brand-copy">
           <strong class="brand-name">Murugan Farms</strong>
           <small class="brand-tag">Fresh Produce • Healthy Life • From Our Farm</small>
@@ -813,7 +969,7 @@
       </ul>
 
       <div class="footer-emblem" data-sal="fade" aria-hidden="true">
-        <img src="/muruganfarms/assets/images/footer-emblem.png?v=20261105i" alt="" width="200" height="200" loading="lazy" />
+        <img src="/muruganfarms/assets/images/footer-emblem.png?v=20261106b" alt="" width="200" height="200" loading="lazy" />
       </div>
     </div>
   </div>
@@ -876,7 +1032,8 @@
       window.SITE = {
         locale: "en",
         enquiryUrl: "https://shipmyform.com/to/sankarnaece@gmail.com",
-        csrf: "nWq4YbZzrTjCxlbv0KfIkULzztKse4sLLA61fVhq",
+        visitUrl: "https://farmingmurugansanthi-22b74f79eo4.qoder.website/functions/v1/app/visits",
+        csrf: "rRzE6BRUwzZ6MUpmgWzCxYTm5PQU0UKni4SkTzFL",
         strings: {
           errors: {"name_required":"Please enter your name.","name_short":"Name looks too short.","phone_required":"Please enter your phone number.","phone_invalid":"Enter a valid phone number (10\u201315 digits).","message_required":"Please write a short message.","message_short":"Message should be at least 10 characters."},
           sending: "Sending\u2026",
@@ -891,7 +1048,7 @@
     <script src="/muruganfarms/vendor/jquery/jquery.min.js"></script>
     <script src="/muruganfarms/vendor/slick/slick.min.js"></script>
     <script src="/muruganfarms/vendor/sal/sal.js"></script>
-    <script src="/muruganfarms/js/main.js?v=20261105i"></script>
-          <script src="/muruganfarms/sites/murugan/js/site.js?v=20261105i"></script>
+    <script src="/muruganfarms/js/main.js?v=20261106b"></script>
+          <script src="/muruganfarms/sites/murugan/js/site.js?v=20261106b"></script>
       </body>
 </html>

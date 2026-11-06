@@ -275,6 +275,43 @@
     render();
   }
 
+  /* ---------- Live visit count ---------- */
+  // The number comes only from the Function's own database. A missing, refused
+  // or malformed answer leaves the chip hidden rather than showing a zero that
+  // would read as "nobody has been here".
+  function count(value) {
+    return Number.isSafeInteger(value) && value >= 0 ? value : null;
+  }
+
+  function initVisitCounter() {
+    const chip = document.getElementById("visitChip");
+    const url = (window.SITE || {}).visitUrl;
+    if (!chip || !url) return;
+
+    fetch(url, { method: "POST", credentials: "omit", signal: AbortSignal.timeout(5000) })
+      .then((response) => (response.ok ? response.json() : null))
+      .then((data) => {
+        if (!data || data.ok !== true) return;
+        const total = count(data.total);
+        if (total === null) return;
+
+        const format = new Intl.NumberFormat("en-IN");
+        document.getElementById("visitCount").textContent = format.format(total);
+
+        const today = count(data.today);
+        const group = document.getElementById("visitTodayGroup");
+        if (today === null) {
+          group.hidden = true;
+        } else {
+          document.getElementById("visitToday").textContent = format.format(today);
+        }
+        chip.hidden = false;
+      })
+      .catch(() => {
+        /* offline, blocked or still on the dev server: keep the chip hidden */
+      });
+  }
+
   document.addEventListener("DOMContentLoaded", () => {
     initProductSlider();
     initMagnetic();
@@ -282,5 +319,6 @@
     initLocaleMemory();
     initHeroWords();
     initBackToTop();
+    initVisitCounter();
   });
 })();

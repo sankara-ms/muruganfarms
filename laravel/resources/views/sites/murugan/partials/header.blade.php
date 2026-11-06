@@ -6,7 +6,7 @@
 <header class="site-header" id="top">
   <div class="container header-inner">
     <a class="brand" href="#home" aria-label="{{ __('site.a11y.back_to_top') }}">
-      <img class="brand-mark" src="{{ asset('assets/images/logo.png') }}?v=20261105i" alt="" width="46" height="46" />
+      <img class="brand-mark" src="{{ asset('assets/images/logo.png') }}?v=20261106b" alt="" width="46" height="46" />
       <span class="brand-copy">
         <strong class="brand-name">{{ __('site.brand.name') }}</strong>
         <small class="brand-tag">{{ __('site.brand.tagline') }}</small>
@@ -52,6 +52,13 @@
           <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/>
         </svg>
         {{ __('site.actions.call') }}
+      </a>
+
+      <a class="btn btn-outline btn-small wa-header" href="{{ $site->contact('whatsapp') }}" target="_blank" rel="noreferrer" title="{{ __('site.actions.whatsapp') }}">
+        <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.47-2.4-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01s-.52.07-.79.37c-.27.3-1.04 1.02-1.04 2.48s1.06 2.87 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.18-1.42-.08-.12-.28-.2-.57-.34m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88a9.83 9.83 0 0 1 6.99 2.9 9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.9 11.9 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41z"/>
+        </svg>
+        <span class="wa-label">{{ __('site.actions.whatsapp') }}</span>
       </a>
 
       <button
